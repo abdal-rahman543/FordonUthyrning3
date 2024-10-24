@@ -14,9 +14,12 @@ namespace UthyrningSystem.Entiteter
         public List<BetalningsMetod> BetalningsMetod;
         public BehörighetsNivå Behörighet;
 
-        public Konto(Användare ägare) 
+        public Konto(Användare ägare, BehörighetsNivå status) 
         {
             KontoÄgare = ägare;
+            AnvändareID = ägare.FörNamn;
+            Behörighet = status;
+            HyresHistorik =  new List<HyresHistorik>();
         }
     }
 }
