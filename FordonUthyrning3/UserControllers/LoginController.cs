@@ -21,6 +21,7 @@ namespace FordonUthyrning3
             InitializeComponent();
             loginService =  new LoginService();
             _form1 = form;
+            // Centrerar LoginBoxen
             this.Location = new Point(_form1.GbxContent_Container.Width / 2 - this.Width / 2, _form1.GbxContent_Container.Height / 2 - this.Height / 2);
         }
 
@@ -32,6 +33,8 @@ namespace FordonUthyrning3
             if (LoggedUser != null)
             {
                 this.Dispose();
+                _form1.GbxContent_Container.Controls.Add(new StationController(_form1));
+
             }
           
             
