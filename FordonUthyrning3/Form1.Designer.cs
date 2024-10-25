@@ -34,8 +34,12 @@
             exitToolStripMenuItem = new ToolStripMenuItem();
             BackgrundsBild_Container = new PictureBox();
             GbxContent_Container = new GroupBox();
+            splitContainer = new SplitContainer();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BackgrundsBild_Container).BeginInit();
+            GbxContent_Container.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainer).BeginInit();
+            splitContainer.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -80,12 +84,23 @@
             // 
             GbxContent_Container.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             GbxContent_Container.BackColor = Color.DarkGray;
+            GbxContent_Container.Controls.Add(splitContainer);
             GbxContent_Container.Location = new Point(93, 45);
             GbxContent_Container.Name = "GbxContent_Container";
+            GbxContent_Container.Padding = new Padding(15);
             GbxContent_Container.Size = new Size(1014, 586);
             GbxContent_Container.TabIndex = 2;
             GbxContent_Container.TabStop = false;
-           
+            // 
+            // splitContainer
+            // 
+            splitContainer.Dock = DockStyle.Fill;
+            splitContainer.Location = new Point(15, 31);
+            splitContainer.Name = "splitContainer";
+            splitContainer.Size = new Size(984, 540);
+            splitContainer.SplitterDistance = 489;
+            splitContainer.TabIndex = 0;
+            splitContainer.Visible = false;
             // 
             // Form1
             // 
@@ -102,6 +117,9 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)BackgrundsBild_Container).EndInit();
+            GbxContent_Container.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer).EndInit();
+            splitContainer.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -114,5 +132,7 @@
         private ToolStripMenuItem exitToolStripMenuItem;
         private PictureBox BackgrundsBild_Container;
         public GroupBox GbxContent_Container;
+        public SplitContainer splitContainer;
+        private Splitter splitter1;
     }
 }

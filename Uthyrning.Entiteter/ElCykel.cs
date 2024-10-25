@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,14 +10,13 @@ namespace UthyrningSystem.Entiteter
 {
     public class ElCykel: Fordon
     {
-        public ElCykel()
+        string FordonID;
+        public ElCykel(FordonsTyp fordonTyp, FordonStatus fordonStatus, float kostnad, int batteriNivå = 100)
+         : base(fordonTyp, fordonStatus, kostnad, batteriNivå)
         {
-            
             this.FordonID = SkapaFordonID();
-            this.FordonTyp = FordonsTyp.El_cykel;
-            this.FordonStatus = FordonStatus.Ok;
-            this.kostnad = 3.5f;
         }
+
 
         public override string SkapaFordonID()
         {

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using Uthyrning.Affärslager;
 using UthyrningSystem.Entiteter;
 using FordonUthyrning3.UserControllers;
+using FordonUthyrning3.GUI_components;
 namespace FordonUthyrning3
 {
     public partial class StationController : UserControl
@@ -21,20 +22,38 @@ namespace FordonUthyrning3
             InitializeComponent();
             _form1 = form;
             _service = new StationService();
+            this.Dock = DockStyle.Left | DockStyle.Bottom;
+
         }
-        public void pnlStationContainer_Load(object sender, EventArgs e)
+        public void LaddaInStationer()
         {
             List<Station> StationList = _service.HämtaStationer();
             foreach (Station station in StationList)
             {
-                UI_StationsKort StationKort = new UI_StationsKort(station);
+                UI_StationsKort StationKort = new UI_StationsKort(station, _form1);
                 pnlStationContainer.Controls.Add(StationKort);
-                StationKort.Width = pnlStationContainer.Width - 30 ;
-               
+                StationKort.Width = pnlStationContainer.Width - 30;
+
+
 
             }
         }
+        public void VisaFordonIStation(Station station)
+        {
 
-       
-    }
+            pnlStationContainer.FlowDirection = FlowDirection.LeftToRight;
+            pnlStationContainer.WrapContents = true;
+            lblNamn.Text = station.StationNamn;
+            pnlSection.Width = pnlStationContainer.Width;
+            pnlSection.Height = pnlStationContainer.Height;
+            pnlSection.Visible = true;
+            pnlSection.WrapContents = true;
+
+            foreach (Fordon fordon in station.Fordonlista)
+            {
+                FordonKort nyttKort = new FordonKort(fordon, _form1);
+                pnlSection.Controls.Add(nyttKort);
+            }
+        }
+    }     
 }

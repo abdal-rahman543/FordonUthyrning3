@@ -85,6 +85,7 @@
             btnVälj.TabIndex = 4;
             btnVälj.Text = "Välj";
             btnVälj.UseVisualStyleBackColor = false;
+            btnVälj.Click += btnVälj_Click;
             // 
             // lblVärdeAntal
             // 
