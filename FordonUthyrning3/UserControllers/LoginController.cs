@@ -32,6 +32,8 @@ namespace FordonUthyrning3
             if (LoggedUser != null)
             {
                 this.Dispose();
+                _form1.GbxContent_Container.Controls.Add(new StationController(_form1));
+
             }
           
             
