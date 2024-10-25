@@ -12,12 +12,12 @@ using UthyrningSystem.Entiteter;
 
 namespace FordonUthyrning3.UserControllers
 {
-    public partial class UI_StationsKort : UserControl
+    public partial class StationsKort : UserControl
     {
         private readonly Station _Station;
         private StationService _service;
         private Form1 _form1;   
-        public UI_StationsKort(Station station, Form1 form)
+        public StationsKort(Station station, Form1 form)
         {
             InitializeComponent();
             _Station = station;

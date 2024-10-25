@@ -10,11 +10,11 @@ namespace UthyrningSystem.Entiteter
 {
     public class ElCykel: Fordon
     {
-        string FordonID;
+        
         public ElCykel(FordonsTyp fordonTyp, FordonStatus fordonStatus, float kostnad, int batteriNivå = 100)
          : base(fordonTyp, fordonStatus, kostnad, batteriNivå)
         {
-            this.FordonID = SkapaFordonID();
+            
         }
 
 

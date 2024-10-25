@@ -45,17 +45,18 @@ namespace FordonUthyrning3
             pnlStationContainer.FlowDirection = FlowDirection.TopDown;
             pnlStationContainer.Location = new Point(0, 0);
             pnlStationContainer.Name = "pnlStationContainer";
-            pnlStationContainer.Padding = new Padding(0, 20, 20, 20);
+            pnlStationContainer.Padding = new Padding(0, 0, 0, 10);
             pnlStationContainer.Size = new Size(450, 550);
             pnlStationContainer.TabIndex = 0;
             pnlStationContainer.WrapContents = false;
+            
             // 
             // lblNamn
             // 
             lblNamn.AutoSize = true;
             lblNamn.Dock = DockStyle.Top;
             lblNamn.Font = new Font("Segoe UI", 24F, FontStyle.Underline, GraphicsUnit.Point);
-            lblNamn.Location = new Point(3, 20);
+            lblNamn.Location = new Point(3, 0);
             lblNamn.Name = "lblNamn";
             lblNamn.Size = new Size(147, 45);
             lblNamn.TabIndex = 0;
@@ -65,7 +66,7 @@ namespace FordonUthyrning3
             // 
             pnlSection.AutoSize = true;
             pnlSection.Dock = DockStyle.Left;
-            pnlSection.Location = new Point(3, 68);
+            pnlSection.Location = new Point(3, 48);
             pnlSection.Name = "pnlSection";
             pnlSection.Padding = new Padding(0, 0, 0, 10);
             pnlSection.Size = new Size(0, 10);
@@ -79,6 +80,7 @@ namespace FordonUthyrning3
             Controls.Add(pnlStationContainer);
             Name = "StationController";
             Size = new Size(450, 550);
+           
             pnlStationContainer.ResumeLayout(false);
             pnlStationContainer.PerformLayout();
             ResumeLayout(false);

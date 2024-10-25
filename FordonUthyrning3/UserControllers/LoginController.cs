@@ -37,6 +37,7 @@ namespace FordonUthyrning3
                 station.LaddaInStationer();
                 _form1.splitContainer.Visible = true;
                 _form1.splitContainer.Panel1.Controls.Add(station);
+                _form1.Meny.Visible = true;
                
                 
                 

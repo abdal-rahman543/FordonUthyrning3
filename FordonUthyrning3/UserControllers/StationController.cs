@@ -30,7 +30,7 @@ namespace FordonUthyrning3
             List<Station> StationList = _service.HämtaStationer();
             foreach (Station station in StationList)
             {
-                UI_StationsKort StationKort = new UI_StationsKort(station, _form1);
+                StationsKort StationKort = new StationsKort(station, _form1);
                 pnlStationContainer.Controls.Add(StationKort);
                 StationKort.Width = pnlStationContainer.Width - 30;
 
