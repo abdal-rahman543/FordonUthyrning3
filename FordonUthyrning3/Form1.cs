@@ -1,3 +1,5 @@
+using FordonUthyrning3.GUI_components;
+
 namespace FordonUthyrning3
 {
     public partial class Form1 : Form
@@ -36,6 +38,14 @@ namespace FordonUthyrning3
             }
             // Centrerar LoginBoxen
             controller.Location = new Point(GbxContent_Container.Width / 2 - controller.Width / 2, GbxContent_Container.Height / 2 - controller.Height / 2);
+        }
+
+        private void hemToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GbxContent_Container.Controls.Clear();
+            Vyer hemvy = new(this);
+            hemvy.LaddaHemVy();
+            
         }
     }
 }

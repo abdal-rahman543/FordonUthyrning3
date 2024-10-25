@@ -33,7 +33,7 @@ namespace Uthyrning.Affärslager
                     {
                         return _repository.Registrera(förnamn, efternamn, epost, lösenord, Enums.BehörighetsNivå.Admin);
                     }
-                    else if (status == "Användare")
+                    else if (status == "kund")
                     {
                         return _repository.Registrera(förnamn, efternamn, epost, lösenord, Enums.BehörighetsNivå.Användare);
                     }

@@ -1,6 +1,6 @@
 ﻿namespace FordonUthyrning3.UserControllers
 {
-    partial class UI_StationsKort
+    partial class StationsKort
     {
         /// <summary> 
         /// Required designer variable.
@@ -85,6 +85,7 @@
             btnVälj.TabIndex = 4;
             btnVälj.Text = "Välj";
             btnVälj.UseVisualStyleBackColor = false;
+            btnVälj.Click += btnVälj_Click;
             // 
             // lblVärdeAntal
             // 

@@ -7,18 +7,14 @@ using static UthyrningSystem.Entiteter.Enums;
 
 namespace UthyrningSystem.Entiteter
 {
-    internal class ElScooter: Fordon
+    public class ElScooter: Fordon
     {
 
-        public ElScooter() 
+        public ElScooter(FordonsTyp fordonTyp, FordonStatus fordonStatus, float kostnad, int batteriNivå = 100)
+        : base(fordonTyp, fordonStatus, kostnad, batteriNivå)
         {
             
-            this.FordonID = SkapaFordonID();
-            this.FordonTyp = FordonsTyp.El_Scooter;
-            this.FordonStatus = FordonStatus.Ok;
-            this.kostnad =  4.5f;
         }
-
         public override string SkapaFordonID()
         {
             // Generera 4 slumpmässiga siffror

@@ -31,35 +31,47 @@ namespace FordonUthyrning3
         private void InitializeComponent()
         {
             pnlStationContainer = new FlowLayoutPanel();
-            label1 = new Label();
+            lblNamn = new Label();
+            pnlSection = new FlowLayoutPanel();
             pnlStationContainer.SuspendLayout();
             SuspendLayout();
             // 
             // pnlStationContainer
             // 
             pnlStationContainer.AutoScroll = true;
-            pnlStationContainer.AutoSize = true;
-            pnlStationContainer.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            pnlStationContainer.Controls.Add(label1);
+            pnlStationContainer.Controls.Add(lblNamn);
+            pnlStationContainer.Controls.Add(pnlSection);
             pnlStationContainer.Dock = DockStyle.Fill;
             pnlStationContainer.FlowDirection = FlowDirection.TopDown;
             pnlStationContainer.Location = new Point(0, 0);
             pnlStationContainer.Name = "pnlStationContainer";
-            pnlStationContainer.Size = new Size(430, 560);
+            pnlStationContainer.Padding = new Padding(0, 0, 0, 10);
+            pnlStationContainer.Size = new Size(450, 550);
             pnlStationContainer.TabIndex = 0;
             pnlStationContainer.WrapContents = false;
-            pnlStationContainer.HorizontalScroll.Enabled = false;
-            pnlStationContainer.HorizontalScroll.Visible = false;
+            
             // 
-            // label1
+            // lblNamn
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 24F, FontStyle.Underline, GraphicsUnit.Point);
-            label1.Location = new Point(3, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(147, 45);
-            label1.TabIndex = 0;
-            label1.Text = "Stationer";
+            lblNamn.AutoSize = true;
+            lblNamn.Dock = DockStyle.Top;
+            lblNamn.Font = new Font("Segoe UI", 24F, FontStyle.Underline, GraphicsUnit.Point);
+            lblNamn.Location = new Point(3, 0);
+            lblNamn.Name = "lblNamn";
+            lblNamn.Size = new Size(147, 45);
+            lblNamn.TabIndex = 0;
+            lblNamn.Text = "Stationer";
+            // 
+            // pnlSection
+            // 
+            pnlSection.AutoSize = true;
+            pnlSection.Dock = DockStyle.Left;
+            pnlSection.Location = new Point(3, 48);
+            pnlSection.Name = "pnlSection";
+            pnlSection.Padding = new Padding(0, 0, 0, 10);
+            pnlSection.Size = new Size(0, 10);
+            pnlSection.TabIndex = 1;
+            pnlSection.Visible = false;
             // 
             // StationController
             // 
@@ -67,17 +79,17 @@ namespace FordonUthyrning3
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(pnlStationContainer);
             Name = "StationController";
-            Size = new Size(430, 560);
-            Load += pnlStationContainer_Load;
+            Size = new Size(450, 550);
+           
             pnlStationContainer.ResumeLayout(false);
             pnlStationContainer.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
         private FlowLayoutPanel pnlStationContainer;
-        private Label label1;
+        private Label lblNamn;
+        private FlowLayoutPanel pnlSection;
     }
 }

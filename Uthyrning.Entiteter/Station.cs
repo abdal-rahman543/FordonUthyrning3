@@ -14,7 +14,7 @@ namespace UthyrningSystem.Entiteter
         public string Ort;
         public int AntalFordon;
         public int Kapacitet;
-        public List<Fordon>? Fordon;
+        public List<Fordon> Fordonlista;
         public Station(string stationID, string stationNamn, string adress, string ort, int antalFordon, int kapacitet)
         {
             StationID = stationID;
@@ -23,6 +23,7 @@ namespace UthyrningSystem.Entiteter
             Ort = ort;
             AntalFordon = antalFordon;
             Kapacitet = kapacitet;
+            Fordonlista = new List<Fordon>();
 
         }
     }
