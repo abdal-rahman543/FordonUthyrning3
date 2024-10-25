@@ -33,7 +33,7 @@ namespace FordonUthyrning3
                     (this.ClientSize.Height / 2) - (GbxContent_Container.Height / 2)
                 );
 
-            );
+            }
             // Centrerar LoginBoxen
             controller.Location = new Point(GbxContent_Container.Width / 2 - controller.Width / 2, GbxContent_Container.Height / 2 - controller.Height / 2);
         }
