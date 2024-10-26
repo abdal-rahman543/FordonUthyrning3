@@ -29,6 +29,7 @@ namespace FordonUthyrning3.UserControllers
             lblStationNamn.Text = _Station.StationNamn;
             lblVärdeAdress.Text = _Station.Adress + "," + _Station.Ort;
             lblVärdeKapacitet.Text = _Station.Kapacitet.ToString();
+            lblVärdeAntal.Text = _Station.AntalFordon.ToString();
 
         }
 

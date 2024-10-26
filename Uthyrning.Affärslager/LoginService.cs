@@ -6,23 +6,35 @@ namespace Uthyrning.Affärslager
 {
     public class LoginService
     {
-        readonly LoginRepository  repository;
+        readonly LoginRepository  _repository;
 
         public LoginService() 
         {
-            repository = new LoginRepository();
+            _repository = new LoginRepository();
         }
 
-        public Användare Login(string username, string password)
+        public Användare Login(string userID, string password)
         {
-            if (username != null && password != null)
+            List<Användare> AnvändareLista = _repository.HämtaAnvändare();
+            if (userID != null && password != null)
             {
-               return repository.Login(username, password);
+                userID = userID.Trim();
+                password = password.Trim();
+
+
+                foreach (Användare user in AnvändareLista)
+                {
+                    if (user.ID.Equals(userID) && user.Lösenord.Equals(password))
+                    {
+                        return user;
+                    }
+
+                }
+              
             }
-            else
-            {
-                return null;
-            }
+            
+           return null;
+            
         }
 
 

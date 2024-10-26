@@ -16,10 +16,13 @@ namespace Uthyrning.Databas
             databas = InMemoryDatabase.Instans;
         }
 
-        public bool Registrera(string förnamn, string efternamn,string epost, string lösenord, BehörighetsNivå status)
+        public bool Registrera(Användare user)
         {
-            return databas.Registrera(förnamn,efternamn,epost,lösenord,status);
+            return databas.Registrera(user);
         }
-
+        public List<Användare> HämtaAnvändare()
+        {
+            return databas.HämtaAnvändare();
+        }
     }
 }

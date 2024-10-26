@@ -64,32 +64,10 @@ namespace FordonUthyrning3
             else
             {
 
-                // Dispose the textboxes and other controls
-                tbxFörnamn.Visible = false;
-                tbxEfternamn.Visible = false;
-                tbxEpost.Visible = false;
-                tbxLösenord.Visible = false;
-                btnRegistrera.Visible = false;
-                cboBehörighet.Visible = false;
-                lblRegistrering.Visible = false;
+              
 
                 // Show the status message
-                lblRegistereingStatus.Visible = true;
-                lblRegistereingStatus.Text = "Registrering misslyckad!";
-
-                // Use a Timer to delay the disposal or transition to the next step
-                var timer = new System.Windows.Forms.Timer();
-                timer.Interval = 1000; // 1 second
-                timer.Tick += (s, ev) =>
-                {
-                    timer.Stop();
-
-                    // Dispose the current controls or form after the delay
-                    this.Controls.Clear();
-                    this.Dispose();
-                    _form1.GbxContent_Container.Controls.Add(new LoginController(_form1));
-                };
-                timer.Start();
+                MessageBox.Show("Fel inmatning av uppgifter prova igen");
 
             }
         }

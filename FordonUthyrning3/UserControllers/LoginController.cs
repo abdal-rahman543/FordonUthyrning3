@@ -27,9 +27,9 @@ namespace FordonUthyrning3
 
         public void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = tbxAnvändarenamn.Text;
+            string userID = tbxAnvändarenamn.Text;
             string password = tbxLösenord.Text;
-            Användare LoggedUser = loginService.Login(username, password);
+            Användare LoggedUser = loginService.Login(userID, password);
             if (LoggedUser != null)
             {
                 this.Dispose();
@@ -43,6 +43,10 @@ namespace FordonUthyrning3
                 
                 
 
+            }
+            else
+            {
+                MessageBox.Show("Fel användarenamn eller lösenord");
             }
           
             
