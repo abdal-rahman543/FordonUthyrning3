@@ -13,7 +13,7 @@ namespace Uthyrning.Affärslager
 
         public StationService()
         {
-            _repository = new StationRepository();
+            _repository = Custom_RepostioryContainer.GetRepository<StationRepository>();
         }
 
         public List<Station> HämtaStationer()

@@ -12,13 +12,13 @@ namespace Uthyrning.Affärslager
     public class RegistreraService
     {
         private readonly RegistreraRepository _repository;
-
+        
         public RegistreraService()
         {
-            _repository = new RegistreraRepository();
+            _repository = Custom_RepostioryContainer.GetRepository<RegistreraRepository>();
         }
 
-        public bool Registrera(string förnamn, string efternamn, string epost, string lösenord, string status)
+        public Användare Registrera(string förnamn, string efternamn, string epost, string lösenord, string status)
         {
             if (förnamn != null && efternamn != null && epost != null && lösenord != null && status != null)
             {
@@ -42,7 +42,7 @@ namespace Uthyrning.Affärslager
                                 nyAnvändare.SkapaID();
                             }
                         }
-                       
+                      
                         return _repository.Registrera(nyAnvändare);
                     }
                     else if (status == "kund")
@@ -65,7 +65,7 @@ namespace Uthyrning.Affärslager
             }
 
 
-            return false;
+            return null;
 
 
 

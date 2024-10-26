@@ -16,7 +16,7 @@ namespace Uthyrning.Databas
             databas = InMemoryDatabase.Instans;
         }
 
-        public bool Registrera(Användare user)
+        public Användare Registrera(Användare user)
         {
             return databas.Registrera(user);
         }

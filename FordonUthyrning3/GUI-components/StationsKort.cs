@@ -36,7 +36,7 @@ namespace FordonUthyrning3.UserControllers
         private void btnVälj_Click(object sender, EventArgs e)
         {
             _form1.GbxContent_Container.Controls.Clear();
-            StationController Stationen = new StationController(_form1);
+            StationController Stationen = new StationController();
             Stationen.VisaFordonIStation(_Station);
             _form1.GbxContent_Container.Controls.Add(Stationen);
             Stationen.Dock = DockStyle.Fill;

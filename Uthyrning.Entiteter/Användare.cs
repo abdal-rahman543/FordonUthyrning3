@@ -23,17 +23,19 @@ namespace UthyrningSystem.Entiteter
             Lösenord = lösenord.Trim(); 
             konto = new(status);
             ID = SkapaID();
+            Console.WriteLine(ID);
 
 
             
         }
-
+        
         public string SkapaID()
         {
             Random random = new Random();
             string förnamnInitialer = FörNamn.Length >= 2 ? FörNamn.Substring(0, 2).ToUpper() : FörNamn.ToUpper();
             string efternamnInitialer = EfterNamn.Length >= 2 ? EfterNamn.Substring(0, 2).ToUpper() : EfterNamn.ToUpper();
             int randomSiffror = random.Next(10, 99); // Två slumpmässiga siffror mellan 10 och 99
+
 
             return $"{förnamnInitialer}{efternamnInitialer}{randomSiffror}";
         }

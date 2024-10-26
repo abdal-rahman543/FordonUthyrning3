@@ -8,11 +8,10 @@ namespace Uthyrning.Affärslager
     {
         readonly LoginRepository  _repository;
 
-        public LoginService() 
+        public LoginService()
         {
-            _repository = new LoginRepository();
+            _repository = Custom_RepostioryContainer.GetRepository<LoginRepository>();
         }
-
         public Användare Login(string userID, string password)
         {
             List<Användare> AnvändareLista = _repository.HämtaAnvändare();

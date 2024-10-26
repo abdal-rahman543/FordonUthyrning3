@@ -14,8 +14,10 @@ namespace Uthyrning.Databas
 
         public InMemoryDatabase()
         {
+            Användare Jag = new Användare("Abdalrahman", "Alhurafa", "abooodnote04@gmail.com", "123", BehörighetsNivå.Användare);
+            Jag.ID = "ABAL20";
             //Användare
-            AllaAnvändare.Add(new Användare("Abdalrahman","Alhurafa","abooodnote04@gmail.com","123",BehörighetsNivå.Användare));
+            AllaAnvändare.Add(Jag);
             //Stationer
             Station station1 = new Station("S123", "Centralstation", "Huvudgatan 1", "Stockholm", 10);
             Station station2 = new Station("S124", "Södra Station", "Södergatan 5", "Göteborg", 8);
@@ -66,10 +68,10 @@ namespace Uthyrning.Databas
         }
       
         
-        public bool Registrera(Användare user)
+        public Användare Registrera(Användare user)
         {
             AllaAnvändare.Add(user);
-            return true;
+            return user;
         }
 
         public List<Station> HämtaStationer()
