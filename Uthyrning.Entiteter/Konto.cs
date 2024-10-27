@@ -8,18 +8,16 @@ namespace UthyrningSystem.Entiteter
 {
     public class Konto
     {
-        Användare KontoÄgare;
+        
         public List<HyresHistorik> HyresHistorik;
-        public string AnvändareID;
         public List<BetalningsMetod> BetalningsMetod;
         public BehörighetsNivå Behörighet;
 
-        public Konto(Användare ägare, BehörighetsNivå status) 
+        public Konto(BehörighetsNivå status) 
         {
-            KontoÄgare = ägare;
-            AnvändareID = ägare.FörNamn;
             Behörighet = status;
             HyresHistorik =  new List<HyresHistorik>();
+            //borde lägga till betalningsmetod
         }
     }
 }

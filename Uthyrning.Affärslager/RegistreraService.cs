@@ -12,13 +12,13 @@ namespace Uthyrning.Affärslager
     public class RegistreraService
     {
         private readonly RegistreraRepository _repository;
-
+        
         public RegistreraService()
         {
-            _repository = new RegistreraRepository();
+            _repository = Custom_RepostioryContainer.GetRepository<RegistreraRepository>();
         }
 
-        public bool Registrera(string förnamn, string efternamn, string epost, string lösenord, string status)
+        public Användare Registrera(string förnamn, string efternamn, string epost, string lösenord, string status)
         {
             if (förnamn != null && efternamn != null && epost != null && lösenord != null && status != null)
             {
@@ -29,13 +29,35 @@ namespace Uthyrning.Affärslager
                     efternamn = efternamn.Trim();
                     epost = epost.Trim();
                     lösenord = lösenord.Trim();
+                    List<Användare> AnvändareLista = _repository.HämtaAnvändare();
                     if (status == "Admin")
                     {
-                        return _repository.Registrera(förnamn, efternamn, epost, lösenord, Enums.BehörighetsNivå.Admin);
+                        Användare nyAnvändare = new Användare(förnamn, efternamn, epost, lösenord, Enums.BehörighetsNivå.Admin);
+
+                        // Kontrollera om användarens ID redan existerar och skapa ett nytt om det behövs
+                        foreach(Användare an in AnvändareLista)
+                        {
+                            if (nyAnvändare.ID.Equals(an.ID))
+                            {
+                                nyAnvändare.SkapaID();
+                            }
+                        }
+                      
+                        return _repository.Registrera(nyAnvändare);
                     }
                     else if (status == "kund")
                     {
-                        return _repository.Registrera(förnamn, efternamn, epost, lösenord, Enums.BehörighetsNivå.Användare);
+                        Användare nyAnvändare = new Användare(förnamn, efternamn, epost, lösenord, Enums.BehörighetsNivå.Användare);
+
+                        // Kontrollera om användarens ID redan existerar och skapa ett nytt om det behövs
+                        foreach (Användare an in AnvändareLista)
+                        {
+                            if (nyAnvändare.ID.Equals(an.ID))
+                            {
+                                nyAnvändare.SkapaID();
+                            }
+                        }
+                        return _repository.Registrera(nyAnvändare);
                     }
                 }
                
@@ -43,7 +65,7 @@ namespace Uthyrning.Affärslager
             }
 
 
-            return false;
+            return null;
 
 
 
@@ -65,3 +87,19 @@ else if (status == "Användare")
 {
     _repository.Registrera(förnamn, efternamn, epost, lösenord, Enums.BehörighetsNivå.Användare);
 }*/
+
+
+/*
+Användare nyAnvändare = new Användare(förnamn, efternamn, epost, lösenord, status);
+
+            // Kontrollera om användarens ID redan existerar och skapa ett nytt om det behövs
+            while (AllaAnvändare.Exists(an => an.ID.Equals(nyAnvändare.ID)))
+            {
+                nyAnvändare.SkapaID(); // Anropa SkapaID tills ett unikt ID hittas
+            }
+
+            // Lägg till den nya användaren till listan när unikt ID är klart
+            AllaAnvändare.Add(nyAnvändare);
+            return true;
+
+*/

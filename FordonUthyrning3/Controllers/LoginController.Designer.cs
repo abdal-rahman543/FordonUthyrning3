@@ -49,7 +49,7 @@
             // 
             tbxAnvändarenamn.Location = new Point(89, 156);
             tbxAnvändarenamn.Name = "tbxAnvändarenamn";
-            tbxAnvändarenamn.PlaceholderText = "Användarenamn";
+            tbxAnvändarenamn.PlaceholderText = "AnvändareID";
             tbxAnvändarenamn.Size = new Size(230, 23);
             tbxAnvändarenamn.TabIndex = 1;
             // 

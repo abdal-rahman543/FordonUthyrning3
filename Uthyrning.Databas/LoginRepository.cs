@@ -15,19 +15,10 @@ namespace Uthyrning.Databas
             databas = InMemoryDatabase.Instans;
         }
 
-        public Användare Login(string username, string password)
+       
+        public List<Användare> HämtaAnvändare()
         {
-            foreach(Användare user in InMemoryDatabase.AllaAnvändare)
-            {
-                if(user.FörNamn.Equals(username) && user.Lösenord.Equals(password))
-                {
-                    return user;
-                }
-              
-            }
-            return null;
-           
+            return databas.HämtaAnvändare();
         }
-
     }
 }

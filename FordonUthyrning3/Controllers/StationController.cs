@@ -16,12 +16,11 @@ namespace FordonUthyrning3
     public partial class StationController : UserControl
     {
         private StationService _service;
-        private Form1 _form1;
-        public StationController(Form1 form)
+        private static Form1 _form1 = Form1._instance;
+        public StationController()
         {
             InitializeComponent();
-            _form1 = form;
-            _service = new StationService();
+            _service = Custom_ServiceContainer.GetService<StationService>();
             this.Dock = DockStyle.Left | DockStyle.Bottom;
 
         }
