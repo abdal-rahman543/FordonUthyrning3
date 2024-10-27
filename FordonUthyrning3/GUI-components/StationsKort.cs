@@ -29,13 +29,14 @@ namespace FordonUthyrning3.UserControllers
             lblStationNamn.Text = _Station.StationNamn;
             lblVärdeAdress.Text = _Station.Adress + "," + _Station.Ort;
             lblVärdeKapacitet.Text = _Station.Kapacitet.ToString();
+            lblVärdeAntal.Text = _Station.AntalFordon.ToString();
 
         }
 
         private void btnVälj_Click(object sender, EventArgs e)
         {
             _form1.GbxContent_Container.Controls.Clear();
-            StationController Stationen = new StationController(_form1);
+            StationController Stationen = new StationController();
             Stationen.VisaFordonIStation(_Station);
             _form1.GbxContent_Container.Controls.Add(Stationen);
             Stationen.Dock = DockStyle.Fill;

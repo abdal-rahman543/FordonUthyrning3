@@ -1,19 +1,30 @@
 using FordonUthyrning3.GUI_components;
-
+using System.ComponentModel.Design;
+using Uthyrning.Databas;
+using Uthyrning.Affärslager;
+using Microsoft.VisualBasic.Devices;
+using UthyrningSystem.Entiteter;
 namespace FordonUthyrning3
 {
     public partial class Form1 : Form
     {
         private LoginController controller;
+        public static Form1 _instance;
+        public static Användare UserInContext;
+      
+
 
         public Form1()
         {
             InitializeComponent();
 
+            _instance = this;
+           
+
             // Ensure GbxContent_Container is initialized before adding controller
             if (GbxContent_Container != null)
             {
-                controller = new LoginController(this);
+                controller = new LoginController();
                 this.GbxContent_Container.Controls.Add(controller);
             }
             else
@@ -21,7 +32,10 @@ namespace FordonUthyrning3
                 MessageBox.Show("GbxContent_Container is not initialized.");
             }
         }
+       
 
+        // Metod för att initiera Form1-instansen
+      
         private void Form1_Resize(object sender, EventArgs e)
         {
             if (GbxContent_Container != null && controller != null)

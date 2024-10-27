@@ -1,3 +1,6 @@
+using Uthyrning.Affärslager;
+using Uthyrning.Databas;
+
 namespace FordonUthyrning3
 {
     internal static class Program
@@ -10,7 +13,17 @@ namespace FordonUthyrning3
         {
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
+            //Container that holds an instance of the repositories and services 
+            Custom_RepostioryContainer.RegistreraService(new LoginRepository());
+            Custom_RepostioryContainer.RegistreraService(new StationRepository());
+            Custom_RepostioryContainer.RegistreraService(new RegistreraRepository());
+            Custom_ServiceContainer.RegistreraService(new StationService());
+            Custom_ServiceContainer.RegistreraService(new LoginService());
+            Custom_ServiceContainer.RegistreraService(new RegistreraService());
+        
+          
             ApplicationConfiguration.Initialize();
+            // Kör applikationen med Singleton-instansen
             Application.Run(new Form1());
         }
     }

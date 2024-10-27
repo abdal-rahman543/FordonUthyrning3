@@ -26,7 +26,7 @@ namespace FordonUthyrning3.GUI_components
         }
         public void LaddaHemVy()
         {
-            StationController Stationer = new StationController(_form1);
+            StationController Stationer = new StationController();
             _form1.GbxContent_Container.Controls.Add(Stationer);
             Stationer.LaddaInStationer();
         }
