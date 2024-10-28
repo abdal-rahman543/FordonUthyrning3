@@ -133,7 +133,7 @@
         private PictureBox BackgrundsBild_Container;
         public GroupBox GbxContent_Container;
         public SplitContainer splitContainer;
-        private Splitter splitter1;
+        
         public MenuStrip Meny;
     }
 }

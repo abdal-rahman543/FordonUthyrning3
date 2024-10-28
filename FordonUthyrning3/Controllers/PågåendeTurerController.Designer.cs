@@ -28,17 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            pnlContent = new FlowLayoutPanel();
+            lblPågåendeTurer = new Label();
             SuspendLayout();
+            // 
+            // pnlContent
+            // 
+            pnlContent.AutoScroll = true;
+            pnlContent.Dock = DockStyle.Fill;
+            pnlContent.FlowDirection = FlowDirection.TopDown;
+            pnlContent.Location = new Point(0, 0);
+            pnlContent.Name = "pnlContent";
+            pnlContent.Padding = new Padding(0, 0, 0, 20);
+            pnlContent.Size = new Size(510, 644);
+            pnlContent.TabIndex = 1;
+            pnlContent.WrapContents = false;
+            // 
+            // lblPågåendeTurer
+            // 
+            lblPågåendeTurer.AutoSize = true;
+            lblPågåendeTurer.Dock = DockStyle.Top;
+            lblPågåendeTurer.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            lblPågåendeTurer.Location = new Point(0, 0);
+            lblPågåendeTurer.Name = "lblPågåendeTurer";
+            lblPågåendeTurer.Size = new Size(246, 32);
+            lblPågåendeTurer.TabIndex = 0;
+            lblPågåendeTurer.Text = "Inga pågående turer...";
             // 
             // PågåendeTurerController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(lblPågåendeTurer);
+            Controls.Add(pnlContent);
             Name = "PågåendeTurerController";
-            Size = new Size(450, 150);
+            Size = new Size(510, 644);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+        private FlowLayoutPanel pnlContent;
+        private Label lblPågåendeTurer;
     }
 }

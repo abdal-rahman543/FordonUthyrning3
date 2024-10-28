@@ -29,7 +29,15 @@ namespace UthyrningSystem.Entiteter
 
         public void UppdateraAntalFordon()
         {
-            AntalFordon = Fordonlista.Count();
+            int x = 0;
+            foreach (Fordon fordon in Fordonlista) 
+            {
+                if(fordon.BokningStatus == Enums.BokningStatus.Tillgänglig)
+                {
+                    x++;
+                }
+            }
+            AntalFordon = x;
            
         }
     }
