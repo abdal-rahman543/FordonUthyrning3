@@ -40,7 +40,7 @@
             // 
             // tbxFörnamn
             // 
-            tbxFörnamn.Location = new Point(210, 132);
+            tbxFörnamn.Location = new Point(207, 123);
             tbxFörnamn.Name = "tbxFörnamn";
             tbxFörnamn.PlaceholderText = "Förnamn";
             tbxFörnamn.Size = new Size(256, 23);
@@ -48,7 +48,7 @@
             // 
             // tbxEfternamn
             // 
-            tbxEfternamn.Location = new Point(210, 185);
+            tbxEfternamn.Location = new Point(207, 176);
             tbxEfternamn.Name = "tbxEfternamn";
             tbxEfternamn.PlaceholderText = "Efternamn";
             tbxEfternamn.Size = new Size(256, 23);
@@ -56,7 +56,7 @@
             // 
             // tbxEpost
             // 
-            tbxEpost.Location = new Point(210, 235);
+            tbxEpost.Location = new Point(207, 226);
             tbxEpost.Name = "tbxEpost";
             tbxEpost.PlaceholderText = "Epost";
             tbxEpost.Size = new Size(256, 23);
@@ -64,7 +64,7 @@
             // 
             // tbxLösenord
             // 
-            tbxLösenord.Location = new Point(210, 287);
+            tbxLösenord.Location = new Point(207, 278);
             tbxLösenord.Name = "tbxLösenord";
             tbxLösenord.PlaceholderText = "Lösenord";
             tbxLösenord.Size = new Size(256, 23);
@@ -84,7 +84,7 @@
             // 
             btnRegistrera.BackColor = Color.Yellow;
             btnRegistrera.FlatStyle = FlatStyle.Flat;
-            btnRegistrera.Location = new Point(262, 402);
+            btnRegistrera.Location = new Point(266, 403);
             btnRegistrera.Name = "btnRegistrera";
             btnRegistrera.Size = new Size(134, 46);
             btnRegistrera.TabIndex = 5;
@@ -96,16 +96,17 @@
             // 
             cboBehörighet.FormattingEnabled = true;
             cboBehörighet.Items.AddRange(new object[] { "Admin", "kund" });
-            cboBehörighet.Location = new Point(275, 339);
+            cboBehörighet.Location = new Point(271, 346);
             cboBehörighet.Name = "cboBehörighet";
             cboBehörighet.Size = new Size(121, 23);
             cboBehörighet.TabIndex = 6;
+            cboBehörighet.DropDownClosed += cboBehörighet_DropDownClosed;
             // 
             // lblRegistereingStatus
             // 
             lblRegistereingStatus.AutoSize = true;
             lblRegistereingStatus.Font = new Font("Segoe UI Semibold", 36F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            lblRegistereingStatus.Location = new Point(262, 198);
+            lblRegistereingStatus.Location = new Point(258, 189);
             lblRegistereingStatus.Name = "lblRegistereingStatus";
             lblRegistereingStatus.Size = new Size(154, 65);
             lblRegistereingStatus.TabIndex = 7;
@@ -126,7 +127,7 @@
             Controls.Add(tbxEfternamn);
             Controls.Add(tbxFörnamn);
             Name = "RegistereraController";
-            Size = new Size(692, 487);
+            Size = new Size(692, 540);
             SizeChanged += RegistereraController_SizeChanged;
             ResumeLayout(false);
             PerformLayout();

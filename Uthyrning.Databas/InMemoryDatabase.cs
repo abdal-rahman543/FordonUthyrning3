@@ -38,8 +38,7 @@ namespace Uthyrning.Databas
             Fordon cykel3 = new ElCykel(FordonsTyp.El_cykel, FordonStatus.Ok, 130);
             Fordon cykel4 = new ElCykel(FordonsTyp.El_cykel, FordonStatus.Ok, 130);
             Fordon cykel5 = new ElCykel(FordonsTyp.El_cykel, FordonStatus.Ok, 130);
-            Fordon cykel6 = new ElCykel(FordonsTyp.El_cykel, FordonStatus.Ok, 130);
-
+         
             // Lägg till fordonen i respektive station
             station1.Fordonlista.Add(scooter1);
             station1.Fordonlista.Add(scooter2);
@@ -51,7 +50,7 @@ namespace Uthyrning.Databas
             station1.Fordonlista.Add(cykel3);
             station1.Fordonlista.Add(cykel4);
             station1.Fordonlista.Add(cykel5);
-            station1.Fordonlista.Add(cykel6);
+           
             station1.UppdateraAntalFordon();
         }
         public static InMemoryDatabase Instans

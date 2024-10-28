@@ -107,6 +107,7 @@
             btnVälj.TabIndex = 6;
             btnVälj.Text = "Välj";
             btnVälj.UseVisualStyleBackColor = false;
+            btnVälj.Click += btnVälj_Click;
             // 
             // lblVärdeBatteri
             // 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Uthyrning.Entiteter;
 using static UthyrningSystem.Entiteter.Enums;
 namespace UthyrningSystem.Entiteter
 {
@@ -12,11 +13,13 @@ namespace UthyrningSystem.Entiteter
         public List<HyresHistorik> HyresHistorik;
         public List<BetalningsMetod> BetalningsMetod;
         public BehörighetsNivå Behörighet;
-
-        public Konto(BehörighetsNivå status) 
+        public PågåendeTurer tur;
+        public Användare KontoÄgare;
+        public Konto(BehörighetsNivå status, Användare ägare) 
         {
             Behörighet = status;
             HyresHistorik =  new List<HyresHistorik>();
+            KontoÄgare = ägare;          
             //borde lägga till betalningsmetod
         }
     }

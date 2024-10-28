@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FordonUthyrning3.GUI_components;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Uthyrning.Affärslager;
 using UthyrningSystem.Entiteter;
+using static UthyrningSystem.Entiteter.Enums;
 
 namespace FordonUthyrning3
 {
@@ -16,22 +18,67 @@ namespace FordonUthyrning3
     {
         private RegistreraService _service;
         private static Form1 _form1 = Form1._instance;
+
+        string Förnamn;
+        string Efternamn;
+        string Epost;
+        string Lösenord;
+        string BehörighetsNivå;
         public RegistereraController()
         {
             InitializeComponent();
             _service = Custom_ServiceContainer.GetService<RegistreraService>();
+           
         }
-
+        private void LoadValues()
+        {
+             Förnamn = tbxFörnamn.Text;
+             Efternamn = tbxEfternamn.Text;
+             Epost = tbxEpost.Text;
+             Lösenord = tbxLösenord.Text;
+             BehörighetsNivå = (string)cboBehörighet.SelectedItem;
+        }
         public void btnRegistrera_Click(object sender, EventArgs e)
         {
-            string Förnamn = tbxFörnamn.Text;
-            string Efternamn = tbxEfternamn.Text;
-            string Epost = tbxEpost.Text;
-            string Lösenord = tbxLösenord.Text;
-            string BehörighetsNivå = cboBehörighet.Text;
-            Användare LoggedUser  = _service.Registrera(Förnamn, Efternamn, Epost, Lösenord, BehörighetsNivå);
-            Form1.UserInContext = LoggedUser;
-            if (LoggedUser != null) 
+           
+            if (BehörighetsNivå == "kund")
+            {
+                if (Förnamn != "" && Efternamn != "" && Epost != "" && Lösenord != "") 
+                {
+                    BetalningsMetodForm betalform = new(this);
+                    betalform.Dock = DockStyle.None; // Ta bort dockning så att vi kan centrera det manuellt
+
+                    // Beräkna position för att centrera formen
+                    int x = (_form1.GbxContent_Container.Width - betalform.Width) / 2;
+                    int y = (_form1.GbxContent_Container.Height - betalform.Height) / 2;
+                    betalform.Location = new Point(x, y);
+
+                    // Rensa och lägg till den centrerade formen
+                    foreach (Control control in _form1.GbxContent_Container.Controls)
+                    {
+                        control.Visible = false;
+                    }
+
+                    _form1.GbxContent_Container.Controls.Add(betalform);
+                }
+                else
+                {
+                    MessageBox.Show("Du måste fylla i all information");
+
+                }
+               
+            }
+            else
+            {
+                Registrera();
+            }
+        }
+
+        public  void Registrera()
+        {
+           
+            Användare RegisterdUser = _service.Registrera(Förnamn, Efternamn, Epost, Lösenord, BehörighetsNivå);
+            if (RegisterdUser != null)
             {
                 // Dispose the textboxes and other controls
                 tbxFörnamn.Visible = false;
@@ -45,7 +92,8 @@ namespace FordonUthyrning3
                 // Show the status message
                 lblRegistereingStatus.Visible = true;
                 lblRegistereingStatus.Text = "Registrering lyckad!";
-                MessageBox.Show("Ditt användare id:"+LoggedUser.ID);
+                MessageBox.Show("Registrering lyckades" +"\n"+ 
+                    "Ditt användare id:" + RegisterdUser.ID);
 
                 // Use a Timer to delay the disposal or transition to the next step
                 var timer = new System.Windows.Forms.Timer();
@@ -56,8 +104,7 @@ namespace FordonUthyrning3
 
                     // Dispose the current controls or form after the delay
                     this.Controls.Clear();
-                    this.Dispose();
-                    _form1.GbxContent_Container.Controls.Add(new LoginController());
+                    Vyer.LaddaLogginVy();
                 };
                 timer.Start();
 
@@ -65,13 +112,14 @@ namespace FordonUthyrning3
             else
             {
 
-              
+
 
                 // Show the status message
                 MessageBox.Show("Fel inmatning av uppgifter prova igen");
 
             }
         }
+
         public void RegistereraController_SizeChanged(object sender, EventArgs e)
         {
             int containerWidth = this.ClientSize.Width;
@@ -126,6 +174,23 @@ namespace FordonUthyrning3
                 (containerWidth - btnRegistrera.Width) / 2,
                 currentY
             );
+        }
+
+        private void cboBehörighet_DropDownClosed(object sender, EventArgs e)
+        {
+            LoadValues();
+            if (cboBehörighet.SelectedItem != null) 
+            {
+                if (cboBehörighet.SelectedItem == "kund")
+                {
+                    btnRegistrera.Text = "Nästa";
+
+                }
+                else
+                {
+                    btnRegistrera.Text = "Registrera";
+                }
+            }
         }
     }
 }

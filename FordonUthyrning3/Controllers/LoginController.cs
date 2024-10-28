@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FordonUthyrning3.GUI_components;
+using FordonUthyrning3.UserControllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Uthyrning.Affärslager;
+using Uthyrning.Entiteter;
 using UthyrningSystem.Entiteter;
 
 namespace FordonUthyrning3
@@ -33,12 +36,8 @@ namespace FordonUthyrning3
             Användare LoggedUser = loginService.Login(userID, password);
             if (LoggedUser != null)
             {
-                this.Dispose();
-                StationController station = new StationController();
-                station.LaddaInStationer();
-                _form1.splitContainer.Visible = true;
-                _form1.splitContainer.Panel1.Controls.Add(station);
-                _form1.Meny.Visible = true;
+                session.Instance.startSession(LoggedUser);
+                Vyer.LaddaHemVy();
                
                 
                 
@@ -52,12 +51,11 @@ namespace FordonUthyrning3
           
             
         }
+
+    
         public void btnRegistrera_Click(object sender, EventArgs e)
         {
-            RegistereraController registereraController = new RegistereraController();
-            this.Dispose();
-            _form1.GbxContent_Container.Controls.Add(registereraController);
-            registereraController.Dock = DockStyle.Fill;
+            Vyer.LaddaRegistreringsForm();
         }
     }
 
