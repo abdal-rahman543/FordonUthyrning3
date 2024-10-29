@@ -1,4 +1,5 @@
-﻿using FordonUthyrning3.UserControllers;
+﻿using FordonUthyrning3.Controllers;
+using FordonUthyrning3.UserControllers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace FordonUthyrning3.GUI_components
             LoginController controller = new LoginController();
             _form1.GbxContent_Container.Controls.Add(controller);
             _form1.Refresh();
-            
+
 
         }
         public static void LaddaRegistreringsForm()
@@ -49,6 +50,13 @@ namespace FordonUthyrning3.GUI_components
             registereraController.Dock = DockStyle.Fill;
         }
 
-        
+        public static void LaddaStationRegistrering()
+        {
+            _form1.GbxContent_Container.Controls.Clear();
+            StationRegistreringController stationRegistreringController = new StationRegistreringController();
+            _form1.GbxContent_Container.Controls.Add(stationRegistreringController);
+            stationRegistreringController.Dock = DockStyle.Fill;
+        }
+
     }
 }

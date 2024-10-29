@@ -11,6 +11,7 @@ using Uthyrning.Affärslager;
 using UthyrningSystem.Entiteter;
 using FordonUthyrning3.UserControllers;
 using FordonUthyrning3.GUI_components;
+using FordonUthyrning3.Controllers;
 namespace FordonUthyrning3
 {
     public partial class StationController : UserControl
@@ -58,5 +59,11 @@ namespace FordonUthyrning3
                 }
             }
         }
-    }     
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Vyer.LaddaStationRegistrering();
+        }
+
+    }
 }

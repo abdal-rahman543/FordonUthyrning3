@@ -18,7 +18,14 @@ namespace Uthyrning.Affärslager
 
         public List<Station> HämtaStationer()
         {
-            return _repository.HämtaStationer();
+           return _repository.HämtaStationer();
         }
+
+        public void LäggTillStation(Station station)
+        {
+            _repository.LäggTillStation(station);
+        }
+
+
     }
 }
