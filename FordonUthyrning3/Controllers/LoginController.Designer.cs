@@ -79,7 +79,7 @@
             btnRegistrera.TabIndex = 4;
             btnRegistrera.Text = "Registrera";
             btnRegistrera.UseVisualStyleBackColor = true;
-            btnRegistrera.Click += this.btnRegistrera_Click;
+            btnRegistrera.Click += btnRegistrera_Click;
             // 
             // LoginController
             // 

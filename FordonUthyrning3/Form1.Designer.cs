@@ -1,4 +1,6 @@
-﻿namespace FordonUthyrning3
+﻿using FordonUthyrning3.Controllers;
+
+namespace FordonUthyrning3
 {
     partial class Form1
     {
@@ -26,6 +28,8 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
+
+        
         private void InitializeComponent()
         {
             Meny = new MenuStrip();
@@ -125,7 +129,8 @@
             ResumeLayout(false);
             PerformLayout();
         }
-
+        
+   
         #endregion
         private ToolStripMenuItem hemToolStripMenuItem;
         private ToolStripMenuItem profilToolStripMenuItem;

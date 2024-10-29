@@ -18,5 +18,10 @@ namespace Uthyrning.Databas
         {
             return databas.HämtaStationer();
         }
+
+        public void LäggTillStation(Station nyStation)
+        {
+            databas.LäggTillStation(nyStation);
+        }
     }
 }
