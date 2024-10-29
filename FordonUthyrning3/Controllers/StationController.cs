@@ -11,6 +11,7 @@ using Uthyrning.Affärslager;
 using UthyrningSystem.Entiteter;
 using FordonUthyrning3.UserControllers;
 using FordonUthyrning3.GUI_components;
+using FordonUthyrning3.Controllers;
 namespace FordonUthyrning3
 {
     public partial class StationController : UserControl
@@ -51,12 +52,22 @@ namespace FordonUthyrning3
 
             foreach (Fordon fordon in station.Fordonlista)
             {
-               if(fordon.BokningStatus == Enums.BokningStatus.Tillgänglig)
+                if (fordon.BokningStatus == Enums.BokningStatus.Tillgänglig)
                 {
                     FordonKort nyttKort = new FordonKort(fordon, _form1);
                     pnlSection.Controls.Add(nyttKort);
                 }
             }
         }
-    }     
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Vyer.LaddaStationRegistrering();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Vyer.LaddaFordonRegistrering();
+        }
+    }
 }

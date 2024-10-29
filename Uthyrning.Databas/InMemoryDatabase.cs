@@ -25,8 +25,8 @@ namespace Uthyrning.Databas
             //Stationer
             Station station1 = new Station("S123", "Centralstation", "Huvudgatan 1", "Stockholm", 10);
             Station station2 = new Station("S124", "Södra Station", "Södergatan 5", "Göteborg", 8);
-            Station station3 = new Station("S125", "Norra Station", "Norrgatan 3", "Malmö",6);
-            Station station4 = new Station("S125", "västra Station", "västgatan 6", "Helsingborg",6);
+            Station station3 = new Station("S125", "Norra Station", "Norrgatan 3", "Malmö", 6);
+            Station station4 = new Station("S125", "västra Station", "västgatan 6", "Helsingborg", 6);
             stationer.Add(station1);
             stationer.Add(station2);
             stationer.Add(station3);
@@ -59,7 +59,7 @@ namespace Uthyrning.Databas
         }
         public static InMemoryDatabase Instans
         {
-            
+
             get
             {
                 lock (lockToken)
@@ -69,8 +69,8 @@ namespace Uthyrning.Databas
                 return instans;
             }
         }
-      
-        
+
+
         public Användare Registrera(Användare user)
         {
             AllaAnvändare.Add(user);
@@ -86,8 +86,10 @@ namespace Uthyrning.Databas
         {
             return new List<Användare>(AllaAnvändare);
         }
-
-
+        public void LäggTillStation(Station nyStation)
+        {
+            stationer.Add(nyStation);
+        }
 
     }
 }

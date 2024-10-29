@@ -33,6 +33,8 @@ namespace FordonUthyrning3
             pnlStationContainer = new FlowLayoutPanel();
             lblNamn = new Label();
             pnlSection = new FlowLayoutPanel();
+            button1 = new Button();
+            button2 = new Button();
             pnlStationContainer.SuspendLayout();
             SuspendLayout();
             // 
@@ -41,6 +43,8 @@ namespace FordonUthyrning3
             pnlStationContainer.AutoScroll = true;
             pnlStationContainer.Controls.Add(lblNamn);
             pnlStationContainer.Controls.Add(pnlSection);
+            pnlStationContainer.Controls.Add(button1);
+            pnlStationContainer.Controls.Add(button2);
             pnlStationContainer.Dock = DockStyle.Fill;
             pnlStationContainer.FlowDirection = FlowDirection.TopDown;
             pnlStationContainer.Location = new Point(0, 0);
@@ -49,7 +53,6 @@ namespace FordonUthyrning3
             pnlStationContainer.Size = new Size(450, 550);
             pnlStationContainer.TabIndex = 0;
             pnlStationContainer.WrapContents = false;
-            
             // 
             // lblNamn
             // 
@@ -73,6 +76,27 @@ namespace FordonUthyrning3
             pnlSection.TabIndex = 1;
             pnlSection.Visible = false;
             // 
+            // button1
+            // 
+            button1.Anchor = AnchorStyles.Right;
+            button1.Location = new Point(50, 64);
+            button1.Name = "button1";
+            button1.Size = new Size(100, 32);
+            button1.TabIndex = 2;
+            button1.Text = "Läggtillstation";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(3, 102);
+            button2.Name = "button2";
+            button2.Size = new Size(102, 23);
+            button2.TabIndex = 3;
+            button2.Text = "LäggtillFordon";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // StationController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -80,7 +104,6 @@ namespace FordonUthyrning3
             Controls.Add(pnlStationContainer);
             Name = "StationController";
             Size = new Size(450, 550);
-           
             pnlStationContainer.ResumeLayout(false);
             pnlStationContainer.PerformLayout();
             ResumeLayout(false);
@@ -91,5 +114,7 @@ namespace FordonUthyrning3
         private FlowLayoutPanel pnlStationContainer;
         private Label lblNamn;
         private FlowLayoutPanel pnlSection;
+        private Button button1;
+        private Button button2;
     }
 }
