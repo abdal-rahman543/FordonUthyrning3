@@ -51,7 +51,7 @@ namespace FordonUthyrning3.Controllers
 
             if (station != null)
             {
-                // Tar bort registrera Station rutan
+                // Lägg till station och ta sedan bort registrera station rutan
 
                 tbxStationNamn.Visible = false;
                 tbxStationAdress.Visible = false;
@@ -69,6 +69,11 @@ namespace FordonUthyrning3.Controllers
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbxStationNamn_TextChanged(object sender, EventArgs e)
         {
 
         }

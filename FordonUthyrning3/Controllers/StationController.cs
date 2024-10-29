@@ -52,7 +52,7 @@ namespace FordonUthyrning3
 
             foreach (Fordon fordon in station.Fordonlista)
             {
-               if(fordon.BokningStatus == Enums.BokningStatus.Tillgänglig)
+                if (fordon.BokningStatus == Enums.BokningStatus.Tillgänglig)
                 {
                     FordonKort nyttKort = new FordonKort(fordon, _form1);
                     pnlSection.Controls.Add(nyttKort);
@@ -65,5 +65,9 @@ namespace FordonUthyrning3
             Vyer.LaddaStationRegistrering();
         }
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Vyer.LaddaFordonRegistrering();
+        }
     }
 }

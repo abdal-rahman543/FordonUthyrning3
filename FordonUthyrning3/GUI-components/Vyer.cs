@@ -58,5 +58,13 @@ namespace FordonUthyrning3.GUI_components
             stationRegistreringController.Dock = DockStyle.Fill;
         }
 
+        public static void LaddaFordonRegistrering()
+        {
+            _form1.GbxContent_Container.Controls.Clear();
+            FordonRegistreringController fordonRegistreringController = new FordonRegistreringController();
+            _form1.GbxContent_Container.Controls.Add(fordonRegistreringController);
+            fordonRegistreringController.Dock = DockStyle.Fill;
+
+        }
     }
 }

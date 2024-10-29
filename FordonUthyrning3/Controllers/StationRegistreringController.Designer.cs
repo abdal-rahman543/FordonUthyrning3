@@ -46,6 +46,7 @@
             tbxStationNamn.Name = "tbxStationNamn";
             tbxStationNamn.Size = new Size(100, 23);
             tbxStationNamn.TabIndex = 0;
+            tbxStationNamn.TextChanged += tbxStationNamn_TextChanged;
             // 
             // btnRegistreraStation
             // 
@@ -87,9 +88,9 @@
             lblStationRegistrering.Font = new Font("Segoe UI", 21.75F, FontStyle.Underline, GraphicsUnit.Point);
             lblStationRegistrering.Location = new Point(181, 16);
             lblStationRegistrering.Name = "lblStationRegistrering";
-            lblStationRegistrering.Size = new Size(258, 40);
+            lblStationRegistrering.Size = new Size(260, 40);
             lblStationRegistrering.TabIndex = 5;
-            lblStationRegistrering.Text = "StationRegistrering";
+            lblStationRegistrering.Text = "Station registrering";
             lblStationRegistrering.Click += label1_Click;
             // 
             // lblStationNamn
