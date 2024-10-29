@@ -17,10 +17,11 @@ namespace FordonUthyrning3.GUI_components
         private Form1 _form1 = Form1._instance;
         private Fordon _fordon;
         private PågåendeTurer _tur;
-        public PågåendeTurerKort(PågåendeTurer tur)
+        public PågåendeTurerKort(PågåendeTurer tur, Fordon fordon)
         {
             InitializeComponent();
             _tur = tur;
+            _fordon = fordon;
 
         }
 
@@ -36,6 +37,13 @@ namespace FordonUthyrning3.GUI_components
 
         private void btnAvsluta_Click(object sender, EventArgs e)
         {
+            PågåendeTurer tur = session.Instance.InloggadAnvändare.konto.tur;
+            infoForm _InfoForm = new();
+            PågåendeTurerForm form = new(_fordon, _InfoForm);
+            form.AvslutaTur();
+
+            
+
 
         }
     }

@@ -43,7 +43,7 @@ namespace FordonUthyrning3.GUI_components
                 PågåendeTurerForm form = new(_fordon, _infoForm);
                 _infoForm.Controls.Add(form);
                 _infoForm.ShowDialog();
-                StationController station = new();
+               
             }
             else
             {

@@ -28,8 +28,9 @@ namespace FordonUthyrning3.UserControllers
             PågåendeTurer tur =  session.Instance.InloggadAnvändare.konto.tur;
             if (tur != null) 
             {
-                    PågåendeTurerKort kort = new(tur);
-                    pnlContent.Controls.Add(kort);
+                lblPågåendeTurer.Text = "Pågående tur";
+                PågåendeTurerKort kort = new(tur,tur._fordon);
+                pnlContent.Controls.Add(kort);
               
             }
         }
