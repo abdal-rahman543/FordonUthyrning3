@@ -20,7 +20,7 @@ namespace FordonUthyrning3
             Custom_ServiceContainer.RegistreraService(new StationService());
             Custom_ServiceContainer.RegistreraService(new LoginService());
             Custom_ServiceContainer.RegistreraService(new RegistreraService());
-            Custom_ServiceContainer.RegistreraService(new PågåendeTurerService());
+            Custom_ServiceContainer.RegistreraService(new TurService());
 
 
 

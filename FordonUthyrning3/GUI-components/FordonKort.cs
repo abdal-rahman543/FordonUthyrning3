@@ -40,10 +40,12 @@ namespace FordonUthyrning3.GUI_components
             if (tur == null)
             {
                 infoForm _infoForm = new();
-                PågåendeTurerForm form = new(_fordon, _infoForm);
+                BekräftaTurForm form = new(_fordon, _infoForm);
+                form.PågåendeTurerFormLoad();
                 _infoForm.Controls.Add(form);
                 _infoForm.ShowDialog();
-                StationController station = new();
+                
+
             }
             else
             {

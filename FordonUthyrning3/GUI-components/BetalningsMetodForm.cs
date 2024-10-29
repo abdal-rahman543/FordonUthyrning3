@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Uthyrning.Entiteter;
 
 namespace FordonUthyrning3.GUI_components
 {
@@ -88,16 +89,17 @@ namespace FordonUthyrning3.GUI_components
         {
             if (cbxMetod.SelectedItem == "Swish")
             {
-                tbxVärde.Text = "Skriv in ditt telefonnummer";
+                tbxVärde.PlaceholderText = "Skriv in ditt telefonnummer";
+                
             }
             else if (cbxMetod.SelectedItem == "Faktura")
             {
                 tbxVärde.ReadOnly = true;
-                tbxVärde.Text = "Fakturor skickas till din epost";
+                tbxVärde.PlaceholderText = "Fakturor skickas till din epost";
             }
             else if (cbxMetod.SelectedItem == "kort")
             {
-                tbxVärde.Text = "Skriv in ditt kort-nummer 16 siffror";
+                tbxVärde.PlaceholderText = "Skriv in ditt kort-nummer 16 siffror";
             }
         }
 
@@ -106,16 +108,18 @@ namespace FordonUthyrning3.GUI_components
 
             if (cbxMetod.SelectedItem == "Swish")
             {
-                tbxVärde.Text = "Skriv in ditt telefonnummer";
+                string Telenr = tbxVärde.Text;
+                _controller.Registrera(Telenr,"swish");
+               
+                
             }
             else if (cbxMetod.SelectedItem == "Faktura")
             {
-                tbxVärde.ReadOnly = true;
-                tbxVärde.Text = "Fakturor skickas till din epost";
+                _controller.Registrera();
             }
             else if (cbxMetod.SelectedItem == "kort")
             {
-                tbxVärde.Text = "Skriv in ditt kort-nummer 16 siffror";
+                _controller.Registrera(tbxVärde.Text,"kort");
             }
         }
     }

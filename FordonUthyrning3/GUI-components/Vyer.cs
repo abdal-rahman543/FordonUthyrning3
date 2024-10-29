@@ -6,6 +6,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Uthyrning.Entiteter;
+using UthyrningSystem.Entiteter;
 
 namespace FordonUthyrning3.GUI_components
 {
@@ -16,7 +18,7 @@ namespace FordonUthyrning3.GUI_components
         {
             _form1.GbxContent_Container.Controls.Clear();
             StationController Stationer = new StationController();
-            PågåendeTurerController turer = new PågåendeTurerController();
+            TurController turer = new TurController();
             turer.Dock = DockStyle.Right;
             Stationer.Dock = DockStyle.Left;
             _form1.splitContainer.Visible = true;
@@ -35,6 +37,11 @@ namespace FordonUthyrning3.GUI_components
         public static void LaddaLogginVy()
         {
 
+            _form1.Meny.Visible = false;
+            _form1.hemToolStripMenuItem.Visible = true;
+            _form1.profilToolStripMenuItem.Visible = true;
+            _form1.exitToolStripMenuItem.Visible = true;
+            _form1.toolStripMenuBack.Visible = true;
             _form1.GbxContent_Container.Controls.Clear();
             LoginController controller = new LoginController();
             _form1.GbxContent_Container.Controls.Add(controller);
@@ -44,11 +51,19 @@ namespace FordonUthyrning3.GUI_components
         }
         public static void LaddaRegistreringsForm()
         {
+            _form1.Meny.Visible = true;
+            _form1.hemToolStripMenuItem.Visible = false;
+            _form1.profilToolStripMenuItem.Visible = false;
+            _form1.exitToolStripMenuItem.Visible = false;
+            _form1.toolStripMenuBack.Visible = true;
+
             _form1.GbxContent_Container.Controls.Clear();
             RegistereraController registereraController = new RegistereraController();
             _form1.GbxContent_Container.Controls.Add(registereraController);
+           
             registereraController.Dock = DockStyle.Fill;
         }
+
 
         public static void LaddaStationRegistrering()
         {
@@ -66,5 +81,22 @@ namespace FordonUthyrning3.GUI_components
             fordonRegistreringController.Dock = DockStyle.Fill;
 
         }
+
+        public static void LaddaProfil()
+        {
+            _form1.GbxContent_Container.Controls.Clear();
+            Användare _användare = session.Instance.InloggadAnvändare;
+            HistorikController Hcontroller = new HistorikController();
+            ProfilController Pcontroller = new();
+            Hcontroller.LaddaHistorik();
+            Hcontroller.Dock = DockStyle.Right;
+            Pcontroller.Dock = DockStyle.Left;
+            Pcontroller.Width = _form1.GbxContent_Container.Width / 2;
+            _form1.GbxContent_Container.Controls.Add(Hcontroller);
+            _form1.GbxContent_Container.Controls.Add(Pcontroller);
+        }
+
+        
+
     }
 }

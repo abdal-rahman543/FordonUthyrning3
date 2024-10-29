@@ -11,7 +11,7 @@ namespace UthyrningSystem.Entiteter
 {
     public class HyresHistorik
     {
-        public DateTime UthyrningsDatum;
+        public DateOnly UthyrningsDatum;
         public TimeOnly StartTid;
         public TimeOnly SlutTid;
         public float kostnad;
@@ -19,6 +19,15 @@ namespace UthyrningSystem.Entiteter
         public string FordonID;
         public Användare HyresTagare;
 
-
+        public HyresHistorik(DateOnly uthyrningsDatum, TimeOnly startTid, TimeOnly slutTid, float Kostnad, BetalningsMetod betalningsMetod, string fordonID, Användare hyresTagare)
+        {
+            UthyrningsDatum = uthyrningsDatum;
+            StartTid = startTid;
+            SlutTid = slutTid;
+            kostnad = Kostnad;
+            BetalningsMetod = betalningsMetod;
+            FordonID = fordonID;
+            HyresTagare = hyresTagare;
+        }
     }
 }

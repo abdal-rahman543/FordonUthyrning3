@@ -33,6 +33,7 @@ namespace FordonUthyrning3
         private void InitializeComponent()
         {
             Meny = new MenuStrip();
+            toolStripMenuBack = new ToolStripMenuItem();
             hemToolStripMenuItem = new ToolStripMenuItem();
             profilToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
@@ -48,7 +49,7 @@ namespace FordonUthyrning3
             // 
             // Meny
             // 
-            Meny.Items.AddRange(new ToolStripItem[] { hemToolStripMenuItem, profilToolStripMenuItem, exitToolStripMenuItem });
+            Meny.Items.AddRange(new ToolStripItem[] { toolStripMenuBack, hemToolStripMenuItem, profilToolStripMenuItem, exitToolStripMenuItem });
             Meny.Location = new Point(0, 0);
             Meny.Name = "Meny";
             Meny.Size = new Size(1205, 24);
@@ -56,11 +57,20 @@ namespace FordonUthyrning3
             Meny.Text = "menuStrip1";
             Meny.Visible = false;
             // 
+            // toolStripMenuBack
+            // 
+            toolStripMenuBack.Name = "toolStripMenuBack";
+            toolStripMenuBack.Size = new Size(44, 20);
+            toolStripMenuBack.Text = "Back";
+            toolStripMenuBack.Visible = false;
+            toolStripMenuBack.Click += toolStripMenuBack_Click;
+            // 
             // hemToolStripMenuItem
             // 
             hemToolStripMenuItem.Name = "hemToolStripMenuItem";
             hemToolStripMenuItem.Size = new Size(45, 20);
             hemToolStripMenuItem.Text = "Hem";
+            hemToolStripMenuItem.Visible = false;
             hemToolStripMenuItem.Click += hemToolStripMenuItem_Click;
             // 
             // profilToolStripMenuItem
@@ -68,12 +78,16 @@ namespace FordonUthyrning3
             profilToolStripMenuItem.Name = "profilToolStripMenuItem";
             profilToolStripMenuItem.Size = new Size(47, 20);
             profilToolStripMenuItem.Text = "Profil";
+            profilToolStripMenuItem.Visible = false;
+            profilToolStripMenuItem.Click += profilToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             exitToolStripMenuItem.Size = new Size(38, 20);
             exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Visible = false;
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // BackgrundsBild_Container
             // 
@@ -132,13 +146,14 @@ namespace FordonUthyrning3
         
    
         #endregion
-        private ToolStripMenuItem hemToolStripMenuItem;
-        private ToolStripMenuItem profilToolStripMenuItem;
-        private ToolStripMenuItem exitToolStripMenuItem;
+        public ToolStripMenuItem hemToolStripMenuItem;
+        public ToolStripMenuItem profilToolStripMenuItem;
+        public ToolStripMenuItem exitToolStripMenuItem;
         private PictureBox BackgrundsBild_Container;
         public GroupBox GbxContent_Container;
         public SplitContainer splitContainer;
         
         public MenuStrip Meny;
+        public ToolStripMenuItem toolStripMenuBack;
     }
 }
