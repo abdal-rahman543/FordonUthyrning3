@@ -10,6 +10,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Uthyrning.Affärslager;
+using Uthyrning.Entiteter;
 using UthyrningSystem.Entiteter;
 using static UthyrningSystem.Entiteter.Enums;
 
@@ -174,6 +175,7 @@ namespace FordonUthyrning3
             if (RegisterdUser != null)
             {
                 // Dispose the textboxes and other controls
+                RegisterdUser.konto.BetalningsMetod.Add(UthyrningSystem.Entiteter.Enums.BetalningsMetod.Faktura);
                 tbxFörnamn.Visible = false;
                 tbxEfternamn.Visible = false;
                 tbxEpost.Visible = false;

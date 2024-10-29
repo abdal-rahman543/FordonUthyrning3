@@ -53,6 +53,10 @@ namespace FordonUthyrning3.GUI_components
             {
                 cbxBetalningsMetod.Items.Add("Kort");
             }
+            if (_konto.BetalningsMetod.Contains(Enums.BetalningsMetod.Faktura))
+            {
+                cbxBetalningsMetod.Items.Add("Faktura");
+            }
         }
 
         private void lblBörjaTur_Click(object sender, EventArgs e)

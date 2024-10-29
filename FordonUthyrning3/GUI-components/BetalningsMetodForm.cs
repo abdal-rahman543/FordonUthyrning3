@@ -116,6 +116,7 @@ namespace FordonUthyrning3.GUI_components
             else if (cbxMetod.SelectedItem == "Faktura")
             {
                 _controller.Registrera();
+                
             }
             else if (cbxMetod.SelectedItem == "kort")
             {
