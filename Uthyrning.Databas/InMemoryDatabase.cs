@@ -15,6 +15,10 @@ namespace Uthyrning.Databas
         public InMemoryDatabase()
         {
             Användare Jag = new Användare("Abdalrahman", "Alhurafa", "abooodnote04@gmail.com", "123", BehörighetsNivå.Användare);
+            Jag.konto.BetalningsMetod.Add(BetalningsMetod.Swish);
+            Jag.konto.BetalningsMetod.Add(BetalningsMetod.Kort);
+            Jag.konto.TeleNr = "0705805533";
+            Jag.konto.KortNr = "1234567890123456";
             Jag.ID = "ABAL20";
             //Användare
             AllaAnvändare.Add(Jag);

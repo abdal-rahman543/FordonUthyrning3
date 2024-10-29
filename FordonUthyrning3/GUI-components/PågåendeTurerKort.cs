@@ -39,7 +39,7 @@ namespace FordonUthyrning3.GUI_components
         {
             PågåendeTurer tur = session.Instance.InloggadAnvändare.konto.tur;
             infoForm _InfoForm = new();
-            PågåendeTurerForm form = new(_fordon, _InfoForm);
+            BekräftaTurForm form = new(_fordon, _InfoForm);
             form.AvslutaTur();
 
             

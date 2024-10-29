@@ -1,6 +1,6 @@
 ﻿namespace FordonUthyrning3.GUI_components
 {
-    partial class PågåendeTurerForm
+    partial class BekräftaTurForm
     {
         /// <summary> 
         /// Required designer variable.
@@ -36,7 +36,6 @@
             lblFordonID = new Label();
             lblVärdeDatum = new Label();
             lblVärdeStartTid = new Label();
-            lblVärdeBetalningsMetod = new Label();
             lblVärdeFID = new Label();
             label1 = new Label();
             lblSluttid = new Label();
@@ -45,6 +44,8 @@
             lblVärdeTurTid = new Label();
             lblTotalKostnad = new Label();
             lblVärdeKostnad = new Label();
+            btnAvsluta = new Button();
+            cbxBetalningsMetod = new ComboBox();
             SuspendLayout();
             // 
             // lblTitel
@@ -123,15 +124,6 @@
             lblVärdeStartTid.Size = new Size(38, 15);
             lblVärdeStartTid.TabIndex = 7;
             lblVärdeStartTid.Text = "label2";
-            // 
-            // lblVärdeBetalningsMetod
-            // 
-            lblVärdeBetalningsMetod.AutoSize = true;
-            lblVärdeBetalningsMetod.Location = new Point(256, 153);
-            lblVärdeBetalningsMetod.Name = "lblVärdeBetalningsMetod";
-            lblVärdeBetalningsMetod.Size = new Size(38, 15);
-            lblVärdeBetalningsMetod.TabIndex = 8;
-            lblVärdeBetalningsMetod.Text = "label3";
             // 
             // lblVärdeFID
             // 
@@ -214,10 +206,34 @@
             lblVärdeKostnad.Text = "kostnad";
             lblVärdeKostnad.Visible = false;
             // 
-            // PågåendeTurerForm
+            // btnAvsluta
+            // 
+            btnAvsluta.BackColor = Color.FromArgb(255, 255, 128);
+            btnAvsluta.FlatStyle = FlatStyle.Flat;
+            btnAvsluta.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
+            btnAvsluta.Location = new Point(228, 354);
+            btnAvsluta.Name = "btnAvsluta";
+            btnAvsluta.Size = new Size(121, 46);
+            btnAvsluta.TabIndex = 17;
+            btnAvsluta.Text = "Avsluta";
+            btnAvsluta.UseVisualStyleBackColor = false;
+            btnAvsluta.Visible = false;
+            btnAvsluta.Click += btnAvsluta_Click;
+            // 
+            // cbxBetalningsMetod
+            // 
+            cbxBetalningsMetod.FormattingEnabled = true;
+            cbxBetalningsMetod.Location = new Point(256, 150);
+            cbxBetalningsMetod.Name = "cbxBetalningsMetod";
+            cbxBetalningsMetod.Size = new Size(121, 23);
+            cbxBetalningsMetod.TabIndex = 18;
+            // 
+            // BekräftaTurForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(cbxBetalningsMetod);
+            Controls.Add(btnAvsluta);
             Controls.Add(lblVärdeKostnad);
             Controls.Add(lblTotalKostnad);
             Controls.Add(lblVärdeTurTid);
@@ -226,7 +242,6 @@
             Controls.Add(lblSluttid);
             Controls.Add(label1);
             Controls.Add(lblVärdeFID);
-            Controls.Add(lblVärdeBetalningsMetod);
             Controls.Add(lblVärdeStartTid);
             Controls.Add(lblVärdeDatum);
             Controls.Add(lblFordonID);
@@ -235,7 +250,7 @@
             Controls.Add(lblDatum);
             Controls.Add(btnBörjaTur);
             Controls.Add(lblTitel);
-            Name = "PågåendeTurerForm";
+            Name = "BekräftaTurForm";
             Size = new Size(602, 427);
             ResumeLayout(false);
             PerformLayout();
@@ -251,7 +266,6 @@
         private Label lblFordonID;
         private Label lblVärdeDatum;
         private Label lblVärdeStartTid;
-        private Label lblVärdeBetalningsMetod;
         private Label lblVärdeFID;
         private Label label1;
         private Label lblSluttid;
@@ -260,5 +274,7 @@
         private Label lblVärdeTurTid;
         private Label lblTotalKostnad;
         private Label lblVärdeKostnad;
+        private Button btnAvsluta;
+        private ComboBox cbxBetalningsMetod;
     }
 }

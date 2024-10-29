@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Uthyrning.Affärslager;
@@ -73,8 +74,100 @@ namespace FordonUthyrning3
                 Registrera();
             }
         }
+        public void Registrera(string värde,string Metod)
+        {
+            Användare RegisterdUser;
+            // Kontrollerar om swish nummret är i rätt format
+            if (Metod == "swish")
+            {
+                string telenr = värde;
+                if (telenr.Length > 9 && Regex.IsMatch(telenr, @"^\d+$"))
+                {
+                    RegisterdUser = _service.Registrera(Förnamn, Efternamn, Epost, Lösenord, BehörighetsNivå);
+                    SuccessMessage(RegisterdUser);
+                    RegisterdUser.konto.TeleNr = telenr;
+                    RegisterdUser.konto.BetalningsMetod.Add(BetalningsMetod.Swish);
 
-        public  void Registrera()
+                     
+                }
+                else 
+                {
+                    MessageBox.Show("Telefonnummret ska vara 10 siffror");
+                }
+
+            }
+            if (Metod == "kort")
+            {
+                string KortNr = värde;
+                if(KortNr.Length > 15 && Regex.IsMatch(KortNr, @"^\d+$"))
+                {
+                    RegisterdUser = _service.Registrera(Förnamn, Efternamn, Epost, Lösenord, BehörighetsNivå);
+                    SuccessMessage(RegisterdUser);
+                    RegisterdUser.konto.KortNr = KortNr;
+                    RegisterdUser.konto.BetalningsMetod.Add(BetalningsMetod.Kort);
+                }
+                else
+                {
+                    MessageBox.Show("Kort nummret måste vara minst 16 siffror inga bokstäver");
+                }
+               
+            }
+
+        
+          
+        }
+
+        public void SuccessMessage(Användare RegisterdUser)
+        {
+            if (RegisterdUser != null)
+            {
+                // Dispose the textboxes and other controls
+                tbxFörnamn.Visible = false;
+                tbxEfternamn.Visible = false;
+                tbxEpost.Visible = false;
+                tbxLösenord.Visible = false;
+                btnRegistrera.Visible = false;
+                cboBehörighet.Visible = false;
+                lblRegistrering.Visible = false;
+
+                // Show the status message
+
+                lblRegistereingStatus.Visible = true;
+                lblRegistereingStatus.Text = "Registrering lyckad!";
+                MessageBox.Show("Registrering lyckades" + "\n" +
+                    "Ditt användare id:" + RegisterdUser.ID);
+
+
+
+                // Use a Timer to delay the disposal or transition to the next step
+                var timer = new System.Windows.Forms.Timer();
+                timer.Interval = 1000; // 1 second
+                timer.Tick += (s, ev) =>
+                {
+                    timer.Stop();
+
+                    // Dispose the current controls or form after the delay
+                    this.Controls.Clear();
+                    Vyer.LaddaLogginVy();
+                };
+                timer.Start();
+
+            }
+            else
+            {
+
+
+
+                // Show the status message
+                MessageBox.Show("Fel inmatning av uppgifter prova igen");
+
+            }
+        }
+
+
+
+
+        public void Registrera()
         {
            
             Användare RegisterdUser = _service.Registrera(Förnamn, Efternamn, Epost, Lösenord, BehörighetsNivå);

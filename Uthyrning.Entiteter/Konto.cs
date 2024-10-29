@@ -15,12 +15,18 @@ namespace UthyrningSystem.Entiteter
         public BehörighetsNivå Behörighet;
         public PågåendeTurer tur;
         public Användare KontoÄgare;
+        public string TeleNr;
+        public string KortNr;
         public Konto(BehörighetsNivå status, Användare ägare) 
         {
             Behörighet = status;
             HyresHistorik =  new List<HyresHistorik>();
-            KontoÄgare = ägare;          
-            //borde lägga till betalningsmetod
+            KontoÄgare = ägare;
+            BetalningsMetod = new List<BetalningsMetod>();
+
+
         }
+
+       
     }
 }

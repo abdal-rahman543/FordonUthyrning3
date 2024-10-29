@@ -23,7 +23,7 @@ namespace UthyrningSystem.Entiteter
             Ort = ort;
             Kapacitet = kapacitet;
             Fordonlista = new List<Fordon>();
-            AntalFordon = Fordonlista.Count();
+            UppdateraAntalFordon();
 
         }
 

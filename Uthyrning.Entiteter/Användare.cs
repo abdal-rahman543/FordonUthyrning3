@@ -10,8 +10,8 @@ namespace UthyrningSystem.Entiteter
     public class Användare
     {
         public string FörNamn;
-        string EfterNamn;
-        string Epost;
+        public string EfterNamn;
+        public string Epost;
         public string Lösenord;
         public string ID;
         public Konto konto;

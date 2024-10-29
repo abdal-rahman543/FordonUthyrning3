@@ -5,13 +5,14 @@ using Uthyrning.Affärslager;
 using Microsoft.VisualBasic.Devices;
 using UthyrningSystem.Entiteter;
 using FordonUthyrning3.UserControllers;
+using Uthyrning.Entiteter;
 namespace FordonUthyrning3
 {
     public partial class Form1 : Form
     {
-       
+
         public static Form1 _instance;
-      
+
 
 
         public Form1()
@@ -19,23 +20,23 @@ namespace FordonUthyrning3
             InitializeComponent();
 
             _instance = this;
-           
+
 
             // Ensure GbxContent_Container is initialized before adding controller
             if (GbxContent_Container != null)
             {
                 Vyer.LaddaLogginVy();
-               
+
             }
             else
             {
                 MessageBox.Show("GbxContent_Container is not initialized.");
             }
         }
-       
+
 
         // Metod för att initiera Form1-instansen
-      
+
         private void Form1_Resize(object sender, EventArgs e)
         {
             if (GbxContent_Container != null)
@@ -50,18 +51,38 @@ namespace FordonUthyrning3
                 );
 
                 // Centrerar LoginBoxen
-               
-               
+
+
             }
-            
+
         }
 
         private void hemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GbxContent_Container.Controls.Clear();
-            
+
             Vyer.LaddaHemVy();
-            
+
         }
+
+        private void profilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vyer.LaddaProfil();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _instance.Meny.Visible = false;
+            session.Instance.EndSession();
+            Vyer.LaddaLogginVy();
+        }
+
+        private void toolStripMenuBack_Click(object sender, EventArgs e)
+        {
+            _instance.Meny.Visible = true;
+            Vyer.LaddaLogginVy();
+        }
+
+       
     }
 }

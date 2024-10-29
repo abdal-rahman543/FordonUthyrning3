@@ -1,6 +1,6 @@
 ﻿namespace FordonUthyrning3.UserControllers
 {
-    partial class PågåendeTurerController
+    partial class TurController
     {
         /// <summary> 
         /// Required designer variable.
@@ -55,13 +55,13 @@
             lblPågåendeTurer.TabIndex = 0;
             lblPågåendeTurer.Text = "Inga pågående turer...";
             // 
-            // PågåendeTurerController
+            // TurController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(lblPågåendeTurer);
             Controls.Add(pnlContent);
-            Name = "PågåendeTurerController";
+            Name = "TurController";
             Size = new Size(510, 644);
             ResumeLayout(false);
             PerformLayout();

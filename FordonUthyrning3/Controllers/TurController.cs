@@ -10,17 +10,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Uthyrning.Affärslager;
 using Uthyrning.Entiteter;
+using static UthyrningSystem.Entiteter.Enums;
+using UthyrningSystem.Entiteter;
 
 namespace FordonUthyrning3.UserControllers
 {
-    public partial class PågåendeTurerController : UserControl
+    public partial class TurController : UserControl
     {
         private static Form1 _form1 = Form1._instance;
-        private static PågåendeTurerService _service;
-        public PågåendeTurerController()
+        private static TurService _service;
+        public TurController()
         {
             InitializeComponent();
-            _service = Custom_ServiceContainer.GetService<PågåendeTurerService>();
+            _service = Custom_ServiceContainer.GetService<TurService>();
         }
 
         public void LaddaKort()
@@ -34,7 +36,10 @@ namespace FordonUthyrning3.UserControllers
               
             }
         }
-
+        public void RegistreraHistorik(DateOnly uthyrningsDatum, TimeOnly startTid, TimeOnly slutTid, float Kostnad, BetalningsMetod betalningsMetod, string fordonID, Användare hyresTagare)
+        {
+            _service.RegistreraHistorik(uthyrningsDatum,startTid,slutTid,Kostnad,betalningsMetod,fordonID,hyresTagare);
+        }
         public void RegistreraTur(PågåendeTurer tur)
         {
             _service.RegistreraTur(tur);
