@@ -16,20 +16,28 @@ namespace FordonUthyrning3.GUI_components
         private static Form1 _form1 = Form1._instance;
         public static void LaddaHemVy()
         {
-            _form1.GbxContent_Container.Controls.Clear();
-            StationController Stationer = new StationController();
-            TurController turer = new TurController();
-            turer.Dock = DockStyle.Right;
-            Stationer.Dock = DockStyle.Left;
-            _form1.splitContainer.Visible = true;
-            Stationer.LaddaInStationer();
-            turer.LaddaKort();
-            _form1.splitContainer.Panel1.Controls.Clear();
-            _form1.splitContainer.Panel2.Controls.Clear();
-            _form1.GbxContent_Container.Controls.Add(Stationer);
-            _form1.GbxContent_Container.Controls.Add(turer);
-            _form1.Meny.Visible = true;
-
+            Användare användare = session.Instance.InloggadAnvändare;
+            
+            if(användare.konto.Behörighet == Enums.BehörighetsNivå.Användare)
+            {
+                _form1.GbxContent_Container.Controls.Clear();
+                StationController Stationer = new StationController();
+                TurController turer = new TurController();
+                turer.Dock = DockStyle.Right;
+                Stationer.Dock = DockStyle.Left;
+                _form1.splitContainer.Visible = true;
+                Stationer.LaddaInStationer();
+                turer.LaddaKort();
+                _form1.splitContainer.Panel1.Controls.Clear();
+                _form1.splitContainer.Panel2.Controls.Clear();
+                _form1.GbxContent_Container.Controls.Add(Stationer);
+                _form1.GbxContent_Container.Controls.Add(turer);
+                _form1.Meny.Visible = true;
+            }
+            else if(användare.konto.Behörighet == Enums.BehörighetsNivå.Admin)
+            {
+                LaddaAdminVy();
+            }
 
 
 
@@ -84,19 +92,93 @@ namespace FordonUthyrning3.GUI_components
 
         public static void LaddaProfil()
         {
-            _form1.GbxContent_Container.Controls.Clear();
-            Användare _användare = session.Instance.InloggadAnvändare;
-            HistorikController Hcontroller = new HistorikController();
-            ProfilController Pcontroller = new();
-            Hcontroller.LaddaHistorik();
-            Hcontroller.Dock = DockStyle.Right;
-            Pcontroller.Dock = DockStyle.Left;
-            Pcontroller.Width = _form1.GbxContent_Container.Width / 2;
-            _form1.GbxContent_Container.Controls.Add(Hcontroller);
-            _form1.GbxContent_Container.Controls.Add(Pcontroller);
+            Användare användare = session.Instance.InloggadAnvändare;
+            if (användare.konto.Behörighet == Enums.BehörighetsNivå.Användare)
+            {
+                _form1.GbxContent_Container.Controls.Clear();
+                Användare _användare = session.Instance.InloggadAnvändare;
+                HistorikController Hcontroller = new HistorikController();
+                ProfilController Pcontroller = new();
+                Hcontroller.LaddaHistorik();
+                Hcontroller.Dock = DockStyle.Right;
+                Pcontroller.Dock = DockStyle.Left;
+                Pcontroller.Width = _form1.GbxContent_Container.Width / 2;
+                _form1.GbxContent_Container.Controls.Add(Hcontroller);
+                _form1.GbxContent_Container.Controls.Add(Pcontroller);
+            }
+            else if(användare.konto.Behörighet == Enums.BehörighetsNivå.Admin)
+            {
+
+                _form1.GbxContent_Container.Controls.Clear();
+                ProfilController Pcontroller = new();
+                Pcontroller.Dock = DockStyle.Left;
+                Pcontroller.Width = _form1.GbxContent_Container.Width / 2;
+                _form1.GbxContent_Container.Controls.Add(Pcontroller);
+
+            }
+           
         }
 
-        
+        public static void LaddaAdminVy()
+        {
+            // Spara referenser till knapparna
+            var btnAddFordon = _form1.btnAddFordon;
+            var btnAddStation = _form1.btnAddStation;
+
+            // Ta bort alla kontroller
+            _form1.GbxContent_Container.Controls.Clear();
+
+
+
+            // Lägg till knapparna igen
+            _form1.GbxContent_Container.Controls.Add(btnAddFordon);
+            _form1.GbxContent_Container.Controls.Add(btnAddStation);
+
+
+
+
+
+            int containerWidth = _form1.GbxContent_Container.Width;
+            int containerHeight = _form1.GbxContent_Container.Height;
+
+            
+
+            _form1.btnAddFordon.Left = containerWidth - 200 - _form1.btnAddFordon.Width - 10; // 10 pixlar från högerkanten
+            _form1.btnAddFordon.Top = (containerHeight / 2) - _form1.btnAddFordon.Height - 5; // Något ovan mitten
+
+
+            _form1.btnAddStation.Left = containerWidth -200  - _form1.btnAddStation.Width - 10; // 10 pixlar från högerkanten
+            _form1.btnAddStation.Top = (containerHeight / 2) + 10; // Något under mitten
+
+            // Se till att knapparna är synliga
+            _form1.btnAddFordon.Visible = true;
+            _form1.btnAddStation.Visible = true;
+
+
+
+
+
+
+
+
+
+
+
+            // Lägg till och konfigurera StationController
+            StationController Stationer = new StationController();
+            Stationer.Dock = DockStyle.Left;
+            Stationer.LaddaInStationer();
+            _form1.GbxContent_Container.Controls.Add(Stationer);
+
+            // Visa andra element
+            btnAddFordon.Visible = true;
+            btnAddStation.Visible = true;
+          
+            _form1.Meny.Visible = true;
+
+        }
+
+
 
     }
 }

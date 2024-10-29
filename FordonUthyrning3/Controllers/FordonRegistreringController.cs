@@ -78,7 +78,7 @@ namespace FordonUthyrning3.Controllers
 
             // Registrera fordonet till vald station
             RegistreraNyttFordonMedStation(nyttFordon);
-            Vyer.LaddaHemVy();
+           
         }
         public void RegistreraNyttFordonMedStation(Fordon fordon)
         {
@@ -88,7 +88,17 @@ namespace FordonUthyrning3.Controllers
             {
                 // Add the vehicle to the station's vehicle list
                 if (station.Fordonlista == null) station.Fordonlista = new List<Fordon>();
-                station.Fordonlista.Add(fordon);
+                if (station.Fordonlista.Count == station.Kapacitet)
+                {
+                    MessageBox.Show($"Stationen {station.StationNamn} har nått sin maximala kapacitet och kan inte ta emot fler fordon.");
+                    return;
+                }
+                else
+                {
+                    station.Fordonlista.Add(fordon);
+                    Vyer.LaddaHemVy();
+                }
+               
 
                 // Update the station list in the database to reflect the changes
                 station.UppdateraAntalFordon();

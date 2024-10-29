@@ -14,7 +14,7 @@ namespace Uthyrning.Databas
 
         public InMemoryDatabase()
         {
-            Användare Jag = new Användare("Abdalrahman", "Alhurafa", "abooodnote04@gmail.com", "123", BehörighetsNivå.Användare);
+            Användare Jag = new Användare("Abdalrahman", "Alhurafa", "abooodnote04@gmail.com", "123", BehörighetsNivå.Admin);
             Jag.konto.BetalningsMetod.Add(BetalningsMetod.Swish);
             Jag.konto.BetalningsMetod.Add(BetalningsMetod.Kort);
             Jag.konto.TeleNr = "0705805533";
@@ -41,7 +41,7 @@ namespace Uthyrning.Databas
             Fordon cykel2 = new ElCykel(FordonsTyp.El_cykel, FordonStatus.Ok, 130);
             Fordon cykel3 = new ElCykel(FordonsTyp.El_cykel, FordonStatus.Ok, 130);
             Fordon cykel4 = new ElCykel(FordonsTyp.El_cykel, FordonStatus.Ok, 130);
-            Fordon cykel5 = new ElCykel(FordonsTyp.El_cykel, FordonStatus.Ok, 130);
+           
          
             // Lägg till fordonen i respektive station
             station1.Fordonlista.Add(scooter1);
@@ -53,7 +53,7 @@ namespace Uthyrning.Databas
             station1.Fordonlista.Add(cykel2);
             station1.Fordonlista.Add(cykel3);
             station1.Fordonlista.Add(cykel4);
-            station1.Fordonlista.Add(cykel5);
+            
            
             station1.UppdateraAntalFordon();
         }

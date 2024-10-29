@@ -37,7 +37,14 @@ namespace FordonUthyrning3
             if (LoggedUser != null)
             {
                 session.Instance.startSession(LoggedUser);
-                Vyer.LaddaHemVy();
+                if (LoggedUser.konto.Behörighet == Enums.BehörighetsNivå.Användare) 
+                {
+                    Vyer.LaddaHemVy();
+                }
+                else if(LoggedUser.konto.Behörighet == Enums.BehörighetsNivå.Admin){
+                    Vyer.LaddaAdminVy();
+                }
+                
                
                 
                 

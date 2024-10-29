@@ -83,6 +83,15 @@ namespace FordonUthyrning3
             Vyer.LaddaLogginVy();
         }
 
-       
+
+        private void btnAddStation_Click(object sender, EventArgs e)
+        {
+            Vyer.LaddaStationRegistrering();
+        }
+
+        private void btnAddFordon_Click(object sender, EventArgs e)
+        {
+            Vyer.LaddaFordonRegistrering();
+        }
     }
 }
