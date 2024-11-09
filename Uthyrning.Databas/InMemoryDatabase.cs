@@ -14,14 +14,22 @@ namespace Uthyrning.Databas
 
         public InMemoryDatabase()
         {
-            Användare Jag = new Användare("Abdalrahman", "Alhurafa", "abooodnote04@gmail.com", "123", BehörighetsNivå.Admin);
-            Jag.konto.BetalningsMetod.Add(BetalningsMetod.Swish);
-            Jag.konto.BetalningsMetod.Add(BetalningsMetod.Kort);
-            Jag.konto.TeleNr = "0705805533";
-            Jag.konto.KortNr = "1234567890123456";
-            Jag.ID = "ABAL20";
+            Användare Admin = new Användare("Abdalrahman", "Alhurafa", "abooodnote04@gmail.com", "123", BehörighetsNivå.Admin);
+            Användare Användare = new Användare("Alex", "Alexsson", "abooodnote04@gmail.com", "123", BehörighetsNivå.Användare);
+            Admin.konto.BetalningsMetod.Add(BetalningsMetod.Swish);
+            Admin.konto.BetalningsMetod.Add(BetalningsMetod.Kort);
+            Admin.konto.TeleNr = "0705805533";
+            Admin.konto.KortNr = "1234567890123456";
+            Admin.ID = "ABAL20";
+
+            Användare.konto.BetalningsMetod.Add(BetalningsMetod.Swish);
+            Användare.konto.BetalningsMetod.Add(BetalningsMetod.Kort);
+            Användare.konto.TeleNr = "0705805533";
+            Användare.konto.KortNr = "1234567890123456";
+            Användare.ID = "ALAL20";
             //Användare
-            AllaAnvändare.Add(Jag);
+            AllaAnvändare.Add(Admin);
+            AllaAnvändare.Add(Användare);
             //Stationer
             Station station1 = new Station("S123", "Centralstation", "Huvudgatan 1", "Stockholm", 10);
             Station station2 = new Station("S124", "Södra Station", "Södergatan 5", "Göteborg", 8);
@@ -53,8 +61,38 @@ namespace Uthyrning.Databas
             station1.Fordonlista.Add(cykel2);
             station1.Fordonlista.Add(cykel3);
             station1.Fordonlista.Add(cykel4);
-            
-           
+
+
+            // Skapa instanser av fordon
+            // Skapa nya instanser av fordon
+            Fordon scooter6 = new ElScooter(FordonsTyp.El_Scooter, FordonStatus.Ok, 200);
+            Fordon scooter7 = new ElScooter(FordonsTyp.El_Scooter, FordonStatus.Ok, 200);
+            Fordon scooter8 = new ElScooter(FordonsTyp.El_Scooter, FordonStatus.Ok, 200);
+            Fordon cykel9 = new ElCykel(FordonsTyp.El_cykel, FordonStatus.Ok, 130);
+            Fordon cykel7 = new ElCykel(FordonsTyp.El_cykel, FordonStatus.Ok, 130);
+            Fordon cykel8 = new ElCykel(FordonsTyp.El_cykel, FordonStatus.Ok, 130);
+
+            // Lägg till fordon i station 2
+            station2.Fordonlista.Add(scooter6);
+            station2.Fordonlista.Add(cykel9);
+            station2.Fordonlista.Add(cykel8);
+            station2.UppdateraAntalFordon();
+
+            // Lägg till fordon i station 3
+            station3.Fordonlista.Add(scooter7);
+            station3.Fordonlista.Add(cykel7);
+            station3.Fordonlista.Add(scooter8);
+            station3.UppdateraAntalFordon();
+
+            // Lägg till fordon i station 4
+            Fordon scooter9 = new ElScooter(FordonsTyp.El_Scooter, FordonStatus.Ok, 200);
+            Fordon cykel6 = new ElCykel(FordonsTyp.El_cykel, FordonStatus.Ok, 130);
+            station4.Fordonlista.Add(scooter9);
+            station4.Fordonlista.Add(cykel3);
+            station4.Fordonlista.Add(cykel6);
+            station4.UppdateraAntalFordon();
+
+
             station1.UppdateraAntalFordon();
         }
         public static InMemoryDatabase Instans

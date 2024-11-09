@@ -49,7 +49,7 @@ namespace FordonUthyrning3.GUI_components
             _form1.hemToolStripMenuItem.Visible = true;
             _form1.profilToolStripMenuItem.Visible = true;
             _form1.exitToolStripMenuItem.Visible = true;
-            _form1.toolStripMenuBack.Visible = true;
+            _form1.toolStripMenuBack.Visible = false;
             _form1.GbxContent_Container.Controls.Clear();
             LoginController controller = new LoginController();
             _form1.GbxContent_Container.Controls.Add(controller);

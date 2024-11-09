@@ -16,12 +16,12 @@ namespace FordonUthyrning3.UserControllers
     {
         private readonly Station _Station;
         private StationService _service;
-        private Form1 _form1 =  Form1._instance;
+        private Form1 _form1 = Form1._instance;
         public StationsKort(Station station)
         {
             InitializeComponent();
             _Station = station;
-          
+
         }
 
         private void UI_StationsKort_Load(object sender, EventArgs e)
@@ -46,5 +46,7 @@ namespace FordonUthyrning3.UserControllers
 
 
         }
+
+       
     }
 }

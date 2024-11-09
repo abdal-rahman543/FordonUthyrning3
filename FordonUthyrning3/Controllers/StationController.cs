@@ -54,7 +54,7 @@ namespace FordonUthyrning3
             {
                 if (fordon.BokningStatus == Enums.BokningStatus.Tillgänglig)
                 {
-                    FordonKort nyttKort = new FordonKort(fordon, _form1);
+                    FordonKort nyttKort = new FordonKort(fordon,station, _form1);
                     pnlSection.Controls.Add(nyttKort);
                 }
             }

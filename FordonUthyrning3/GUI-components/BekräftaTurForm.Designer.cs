@@ -52,7 +52,7 @@
             // 
             lblTitel.AutoSize = true;
             lblTitel.Font = new Font("Segoe UI", 24F, FontStyle.Underline, GraphicsUnit.Point);
-            lblTitel.Location = new Point(169, 25);
+            lblTitel.Location = new Point(171, 12);
             lblTitel.Name = "lblTitel";
             lblTitel.Size = new Size(252, 45);
             lblTitel.TabIndex = 0;
@@ -63,7 +63,7 @@
             btnBörjaTur.BackColor = Color.FromArgb(255, 255, 128);
             btnBörjaTur.FlatStyle = FlatStyle.Flat;
             btnBörjaTur.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
-            btnBörjaTur.Location = new Point(228, 354);
+            btnBörjaTur.Location = new Point(219, 345);
             btnBörjaTur.Name = "btnBörjaTur";
             btnBörjaTur.Size = new Size(121, 46);
             btnBörjaTur.TabIndex = 1;
@@ -74,7 +74,7 @@
             // lblDatum
             // 
             lblDatum.AutoSize = true;
-            lblDatum.Location = new Point(150, 86);
+            lblDatum.Location = new Point(74, 78);
             lblDatum.Name = "lblDatum";
             lblDatum.Size = new Size(46, 15);
             lblDatum.TabIndex = 2;
@@ -83,7 +83,7 @@
             // lblStartTid
             // 
             lblStartTid.AutoSize = true;
-            lblStartTid.Location = new Point(150, 120);
+            lblStartTid.Location = new Point(74, 112);
             lblStartTid.Name = "lblStartTid";
             lblStartTid.Size = new Size(48, 15);
             lblStartTid.TabIndex = 3;
@@ -92,7 +92,7 @@
             // lblBetalningsMetod
             // 
             lblBetalningsMetod.AutoSize = true;
-            lblBetalningsMetod.Location = new Point(150, 153);
+            lblBetalningsMetod.Location = new Point(74, 145);
             lblBetalningsMetod.Name = "lblBetalningsMetod";
             lblBetalningsMetod.Size = new Size(100, 15);
             lblBetalningsMetod.TabIndex = 4;
@@ -101,7 +101,7 @@
             // lblFordonID
             // 
             lblFordonID.AutoSize = true;
-            lblFordonID.Location = new Point(150, 181);
+            lblFordonID.Location = new Point(74, 173);
             lblFordonID.Name = "lblFordonID";
             lblFordonID.Size = new Size(59, 15);
             lblFordonID.TabIndex = 5;
@@ -110,7 +110,7 @@
             // lblVärdeDatum
             // 
             lblVärdeDatum.AutoSize = true;
-            lblVärdeDatum.Location = new Point(202, 86);
+            lblVärdeDatum.Location = new Point(126, 78);
             lblVärdeDatum.Name = "lblVärdeDatum";
             lblVärdeDatum.Size = new Size(38, 15);
             lblVärdeDatum.TabIndex = 6;
@@ -119,7 +119,7 @@
             // lblVärdeStartTid
             // 
             lblVärdeStartTid.AutoSize = true;
-            lblVärdeStartTid.Location = new Point(204, 120);
+            lblVärdeStartTid.Location = new Point(128, 112);
             lblVärdeStartTid.Name = "lblVärdeStartTid";
             lblVärdeStartTid.Size = new Size(38, 15);
             lblVärdeStartTid.TabIndex = 7;
@@ -128,7 +128,7 @@
             // lblVärdeFID
             // 
             lblVärdeFID.AutoSize = true;
-            lblVärdeFID.Location = new Point(215, 181);
+            lblVärdeFID.Location = new Point(139, 173);
             lblVärdeFID.Name = "lblVärdeFID";
             lblVärdeFID.Size = new Size(38, 15);
             lblVärdeFID.TabIndex = 9;
@@ -138,7 +138,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(83, 263);
+            label1.Location = new Point(74, 254);
             label1.Name = "label1";
             label1.Size = new Size(427, 15);
             label1.TabIndex = 10;
@@ -147,7 +147,7 @@
             // lblSluttid
             // 
             lblSluttid.AutoSize = true;
-            lblSluttid.Location = new Point(158, 209);
+            lblSluttid.Location = new Point(74, 202);
             lblSluttid.Name = "lblSluttid";
             lblSluttid.Size = new Size(44, 15);
             lblSluttid.TabIndex = 11;
@@ -157,7 +157,7 @@
             // lblTurttid
             // 
             lblTurttid.AutoSize = true;
-            lblTurttid.Location = new Point(160, 239);
+            lblTurttid.Location = new Point(76, 232);
             lblTurttid.Name = "lblTurttid";
             lblTurttid.Size = new Size(44, 15);
             lblTurttid.TabIndex = 12;
@@ -167,7 +167,7 @@
             // lblVärdeSlutTid
             // 
             lblVärdeSlutTid.AutoSize = true;
-            lblVärdeSlutTid.Location = new Point(212, 209);
+            lblVärdeSlutTid.Location = new Point(128, 202);
             lblVärdeSlutTid.Name = "lblVärdeSlutTid";
             lblVärdeSlutTid.Size = new Size(38, 15);
             lblVärdeSlutTid.TabIndex = 13;
@@ -177,7 +177,7 @@
             // lblVärdeTurTid
             // 
             lblVärdeTurTid.AutoSize = true;
-            lblVärdeTurTid.Location = new Point(215, 239);
+            lblVärdeTurTid.Location = new Point(131, 232);
             lblVärdeTurTid.Name = "lblVärdeTurTid";
             lblVärdeTurTid.Size = new Size(38, 15);
             lblVärdeTurTid.TabIndex = 14;
@@ -188,7 +188,7 @@
             // 
             lblTotalKostnad.AutoSize = true;
             lblTotalKostnad.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            lblTotalKostnad.Location = new Point(157, 296);
+            lblTotalKostnad.Location = new Point(148, 287);
             lblTotalKostnad.Name = "lblTotalKostnad";
             lblTotalKostnad.Size = new Size(141, 30);
             lblTotalKostnad.TabIndex = 15;
@@ -199,7 +199,7 @@
             // 
             lblVärdeKostnad.AutoSize = true;
             lblVärdeKostnad.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            lblVärdeKostnad.Location = new Point(304, 300);
+            lblVärdeKostnad.Location = new Point(295, 291);
             lblVärdeKostnad.Name = "lblVärdeKostnad";
             lblVärdeKostnad.Size = new Size(78, 25);
             lblVärdeKostnad.TabIndex = 16;
@@ -211,7 +211,7 @@
             btnAvsluta.BackColor = Color.FromArgb(255, 255, 128);
             btnAvsluta.FlatStyle = FlatStyle.Flat;
             btnAvsluta.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
-            btnAvsluta.Location = new Point(228, 354);
+            btnAvsluta.Location = new Point(219, 345);
             btnAvsluta.Name = "btnAvsluta";
             btnAvsluta.Size = new Size(121, 46);
             btnAvsluta.TabIndex = 17;
@@ -223,7 +223,7 @@
             // cbxBetalningsMetod
             // 
             cbxBetalningsMetod.FormattingEnabled = true;
-            cbxBetalningsMetod.Location = new Point(256, 150);
+            cbxBetalningsMetod.Location = new Point(180, 142);
             cbxBetalningsMetod.Name = "cbxBetalningsMetod";
             cbxBetalningsMetod.Size = new Size(121, 23);
             cbxBetalningsMetod.TabIndex = 18;
@@ -251,7 +251,7 @@
             Controls.Add(btnBörjaTur);
             Controls.Add(lblTitel);
             Name = "BekräftaTurForm";
-            Size = new Size(602, 427);
+            Size = new Size(602, 423);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -276,5 +276,7 @@
         private Label lblVärdeKostnad;
         private Button btnAvsluta;
         private ComboBox cbxBetalningsMetod;
+        private Label label2;
+        private TextBox tbxBeskrivning;
     }
 }
