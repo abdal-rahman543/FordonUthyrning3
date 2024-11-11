@@ -40,11 +40,15 @@
             tbxKortNr = new TextBox();
             label3 = new Label();
             label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
             SuspendLayout();
             // 
             // tbxFörnamn
             // 
-            tbxFörnamn.Location = new Point(51, 67);
+            tbxFörnamn.Location = new Point(76, 67);
             tbxFörnamn.Name = "tbxFörnamn";
             tbxFörnamn.PlaceholderText = "Förnamn";
             tbxFörnamn.Size = new Size(231, 23);
@@ -62,7 +66,7 @@
             // 
             // tbxEpost
             // 
-            tbxEpost.Location = new Point(51, 175);
+            tbxEpost.Location = new Point(76, 175);
             tbxEpost.Name = "tbxEpost";
             tbxEpost.PlaceholderText = "Epost";
             tbxEpost.Size = new Size(231, 23);
@@ -70,7 +74,7 @@
             // 
             // tbxEfternamn
             // 
-            tbxEfternamn.Location = new Point(51, 116);
+            tbxEfternamn.Location = new Point(76, 116);
             tbxEfternamn.Name = "tbxEfternamn";
             tbxEfternamn.PlaceholderText = "Efternamn";
             tbxEfternamn.Size = new Size(231, 23);
@@ -78,7 +82,7 @@
             // 
             // tbxLösenord
             // 
-            tbxLösenord.Location = new Point(51, 231);
+            tbxLösenord.Location = new Point(76, 231);
             tbxLösenord.Name = "tbxLösenord";
             tbxLösenord.PlaceholderText = "Lösenord";
             tbxLösenord.Size = new Size(231, 23);
@@ -86,7 +90,7 @@
             // 
             // tbxBehörighet
             // 
-            tbxBehörighet.Location = new Point(51, 282);
+            tbxBehörighet.Location = new Point(76, 282);
             tbxBehörighet.Name = "tbxBehörighet";
             tbxBehörighet.PlaceholderText = "Behörighet:";
             tbxBehörighet.ReadOnly = true;
@@ -149,10 +153,50 @@
             label4.TabIndex = 12;
             label4.Text = "kort-Nr";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(12, 67);
+            label5.Name = "label5";
+            label5.Size = new Size(58, 15);
+            label5.TabIndex = 13;
+            label5.Text = "Förnamn:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(10, 119);
+            label6.Name = "label6";
+            label6.Size = new Size(65, 15);
+            label6.TabIndex = 14;
+            label6.Text = "Efternamn:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(12, 178);
+            label7.Name = "label7";
+            label7.Size = new Size(39, 15);
+            label7.TabIndex = 15;
+            label7.Text = "Epost:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(12, 234);
+            label8.Name = "label8";
+            label8.Size = new Size(59, 15);
+            label8.TabIndex = 16;
+            label8.Text = "Lösenord:";
+            // 
             // ProfilController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(tbxKortNr);
@@ -186,5 +230,9 @@
         private TextBox tbxKortNr;
         private Label label3;
         private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
     }
 }
