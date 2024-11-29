@@ -28,53 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblVärdeFTyp = new Label();
-            lblVärdeBStatus = new Label();
-            lblVärdeFStatus = new Label();
-            lblVärdeBatteri = new Label();
+            lblVärdeFId = new Label();
+            lblVärdeBetalningMetod = new Label();
+            lblVärdeStartTid = new Label();
+            lblVärdeDatum = new Label();
             btnAvsluta = new Button();
-            lblFordonTyp = new Label();
-            lblBokningstatus = new Label();
-            lblFordonStatus = new Label();
-            lblBatteri = new Label();
             lblFordonID = new Label();
+            lblBetalningsmetod = new Label();
+            lblStartTid = new Label();
+            lblDatum = new Label();
             SuspendLayout();
             // 
-            // lblVärdeFTyp
+            // lblVärdeFId
             // 
-            lblVärdeFTyp.AutoSize = true;
-            lblVärdeFTyp.Location = new Point(107, 120);
-            lblVärdeFTyp.Name = "lblVärdeFTyp";
-            lblVärdeFTyp.Size = new Size(36, 15);
-            lblVärdeFTyp.TabIndex = 21;
-            lblVärdeFTyp.Text = "värde";
+            lblVärdeFId.AutoSize = true;
+            lblVärdeFId.Location = new Point(102, 104);
+            lblVärdeFId.Name = "lblVärdeFId";
+            lblVärdeFId.Size = new Size(36, 15);
+            lblVärdeFId.TabIndex = 21;
+            lblVärdeFId.Text = "värde";
             // 
-            // lblVärdeBStatus
+            // lblVärdeBetalningMetod
             // 
-            lblVärdeBStatus.AutoSize = true;
-            lblVärdeBStatus.Location = new Point(107, 100);
-            lblVärdeBStatus.Name = "lblVärdeBStatus";
-            lblVärdeBStatus.Size = new Size(36, 15);
-            lblVärdeBStatus.TabIndex = 20;
-            lblVärdeBStatus.Text = "värde";
+            lblVärdeBetalningMetod.AutoSize = true;
+            lblVärdeBetalningMetod.Location = new Point(123, 84);
+            lblVärdeBetalningMetod.Name = "lblVärdeBetalningMetod";
+            lblVärdeBetalningMetod.Size = new Size(36, 15);
+            lblVärdeBetalningMetod.TabIndex = 20;
+            lblVärdeBetalningMetod.Text = "värde";
             // 
-            // lblVärdeFStatus
+            // lblVärdeStartTid
             // 
-            lblVärdeFStatus.AutoSize = true;
-            lblVärdeFStatus.Location = new Point(107, 78);
-            lblVärdeFStatus.Name = "lblVärdeFStatus";
-            lblVärdeFStatus.Size = new Size(36, 15);
-            lblVärdeFStatus.TabIndex = 19;
-            lblVärdeFStatus.Text = "värde";
+            lblVärdeStartTid.AutoSize = true;
+            lblVärdeStartTid.Location = new Point(102, 62);
+            lblVärdeStartTid.Name = "lblVärdeStartTid";
+            lblVärdeStartTid.Size = new Size(36, 15);
+            lblVärdeStartTid.TabIndex = 19;
+            lblVärdeStartTid.Text = "värde";
             // 
-            // lblVärdeBatteri
+            // lblVärdeDatum
             // 
-            lblVärdeBatteri.AutoSize = true;
-            lblVärdeBatteri.Location = new Point(107, 55);
-            lblVärdeBatteri.Name = "lblVärdeBatteri";
-            lblVärdeBatteri.Size = new Size(36, 15);
-            lblVärdeBatteri.TabIndex = 18;
-            lblVärdeBatteri.Text = "värde";
+            lblVärdeDatum.AutoSize = true;
+            lblVärdeDatum.Location = new Point(102, 39);
+            lblVärdeDatum.Name = "lblVärdeDatum";
+            lblVärdeDatum.Size = new Size(36, 15);
+            lblVärdeDatum.TabIndex = 18;
+            lblVärdeDatum.Text = "värde";
             // 
             // btnAvsluta
             // 
@@ -86,67 +85,58 @@
             btnAvsluta.TabIndex = 17;
             btnAvsluta.Text = "Avsluta tur";
             btnAvsluta.UseVisualStyleBackColor = false;
-            // 
-            // lblFordonTyp
-            // 
-            lblFordonTyp.AutoSize = true;
-            lblFordonTyp.Location = new Point(22, 120);
-            lblFordonTyp.Name = "lblFordonTyp";
-            lblFordonTyp.Size = new Size(65, 15);
-            lblFordonTyp.TabIndex = 15;
-            lblFordonTyp.Text = "Fordontyp:";
-            // 
-            // lblBokningstatus
-            // 
-            lblBokningstatus.AutoSize = true;
-            lblBokningstatus.Location = new Point(22, 100);
-            lblBokningstatus.Name = "lblBokningstatus";
-            lblBokningstatus.Size = new Size(85, 15);
-            lblBokningstatus.TabIndex = 14;
-            lblBokningstatus.Text = "Bokningstatus:";
-            // 
-            // lblFordonStatus
-            // 
-            lblFordonStatus.AutoSize = true;
-            lblFordonStatus.Location = new Point(22, 78);
-            lblFordonStatus.Name = "lblFordonStatus";
-            lblFordonStatus.Size = new Size(79, 15);
-            lblFordonStatus.TabIndex = 13;
-            lblFordonStatus.Text = "Fordonstatus:";
-            // 
-            // lblBatteri
-            // 
-            lblBatteri.AutoSize = true;
-            lblBatteri.Location = new Point(22, 55);
-            lblBatteri.Name = "lblBatteri";
-            lblBatteri.Size = new Size(66, 15);
-            lblBatteri.TabIndex = 12;
-            lblBatteri.Text = "Batterinivå:";
+            btnAvsluta.Click += btnAvsluta_Click;
             // 
             // lblFordonID
             // 
             lblFordonID.AutoSize = true;
-            lblFordonID.Font = new Font("Segoe UI", 21.75F, FontStyle.Underline, GraphicsUnit.Point);
-            lblFordonID.Location = new Point(0, 0);
+            lblFordonID.Location = new Point(17, 104);
             lblFordonID.Name = "lblFordonID";
-            lblFordonID.Size = new Size(136, 40);
-            lblFordonID.TabIndex = 11;
-            lblFordonID.Text = "FordonID";
+            lblFordonID.Size = new Size(61, 15);
+            lblFordonID.TabIndex = 15;
+            lblFordonID.Text = "Fordon id:";
+            // 
+            // lblBetalningsmetod
+            // 
+            lblBetalningsmetod.AutoSize = true;
+            lblBetalningsmetod.Location = new Point(17, 84);
+            lblBetalningsmetod.Name = "lblBetalningsmetod";
+            lblBetalningsmetod.Size = new Size(100, 15);
+            lblBetalningsmetod.TabIndex = 14;
+            lblBetalningsmetod.Text = "betalningsmetod:";
+            // 
+            // lblStartTid
+            // 
+            lblStartTid.AutoSize = true;
+            lblStartTid.Location = new Point(17, 62);
+            lblStartTid.Name = "lblStartTid";
+            lblStartTid.Size = new Size(51, 15);
+            lblStartTid.TabIndex = 13;
+            lblStartTid.Text = "Start tid:";
+            // 
+            // lblDatum
+            // 
+            lblDatum.AutoSize = true;
+            lblDatum.Location = new Point(17, 39);
+            lblDatum.Name = "lblDatum";
+            lblDatum.Size = new Size(46, 15);
+            lblDatum.TabIndex = 12;
+            lblDatum.Text = "Datum:";
             // 
             // PågåendeTurerKort
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(lblVärdeFTyp);
-            Controls.Add(lblVärdeBStatus);
-            Controls.Add(lblVärdeFStatus);
-            Controls.Add(lblVärdeBatteri);
+            BackColor = Color.LightGray;
+            Controls.Add(lblVärdeFId);
+            Controls.Add(lblVärdeBetalningMetod);
+            Controls.Add(lblVärdeStartTid);
+            Controls.Add(lblVärdeDatum);
             Controls.Add(btnAvsluta);
-            Controls.Add(lblFordonTyp);
-            Controls.Add(lblBokningstatus);
-            Controls.Add(lblFordonStatus);
-            Controls.Add(lblBatteri);
             Controls.Add(lblFordonID);
+            Controls.Add(lblBetalningsmetod);
+            Controls.Add(lblStartTid);
+            Controls.Add(lblDatum);
             Name = "PågåendeTurerKort";
             Size = new Size(450, 150);
             Load += PågåendeTurerKort_Load;
@@ -156,15 +146,14 @@
 
         #endregion
 
-        private Label lblVärdeFTyp;
-        private Label lblVärdeBStatus;
-        private Label lblVärdeFStatus;
-        private Label lblVärdeBatteri;
+        private Label lblVärdeFId;
+        private Label lblVärdeBetalningMetod;
+        private Label lblVärdeStartTid;
+        private Label lblVärdeDatum;
         private Button btnAvsluta;
-        private Label lblFordonTyp;
-        private Label lblBokningstatus;
-        private Label lblFordonStatus;
-        private Label lblBatteri;
+        private Label lblBetalningsmetod;
+        private Label lblStartTid;
+        private Label lblDatum;
         private Label lblFordonID;
     }
 }

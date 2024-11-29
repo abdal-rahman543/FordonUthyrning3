@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Uthyrning.Affärslager;
+using UthyrningSystem.Entiteter;
 
-namespace FordonUthyrning3.UserControllers
+namespace FordonUthyrning3
 {
-    public partial class PågåendeTurerController : UserControl
+    public partial class infoForm : Form
     {
-        private static Form1 _form1 = Form1._instance;
-        public PågåendeTurerController()
+        
+        public infoForm()
         {
             InitializeComponent();
-            
         }
+
+        
+      
     }
 }

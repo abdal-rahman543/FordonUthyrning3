@@ -10,18 +10,18 @@ namespace UthyrningSystem.Entiteter
     public class Användare
     {
         public string FörNamn;
-        string EfterNamn;
-        string Epost;
+        public string EfterNamn;
+        public string Epost;
         public string Lösenord;
         public string ID;
-        Konto konto;
+        public Konto konto;
         public Användare(string förNamn,string efterNamn, string epost,string lösenord, BehörighetsNivå status) 
         {
             FörNamn = förNamn.Trim();
             EfterNamn = efterNamn.Trim();
             Epost = epost.Trim();
             Lösenord = lösenord.Trim(); 
-            konto = new(status);
+            konto = new(status,this);
             ID = SkapaID();
             Console.WriteLine(ID);
 

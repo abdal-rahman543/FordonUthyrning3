@@ -7,28 +7,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Uthyrning.Entiteter;
 using UthyrningSystem.Entiteter;
 
 namespace FordonUthyrning3.GUI_components
 {
     public partial class PågåendeTurerKort : UserControl
     {
-        private Form1 _form1;
+        private Form1 _form1 = Form1._instance;
         private Fordon _fordon;
-        public PågåendeTurerKort(Form1 form, Fordon fordon)
+        private PågåendeTurer _tur;
+        public PågåendeTurerKort(PågåendeTurer tur, Fordon fordon)
         {
             InitializeComponent();
-            _form1 = form;
+            _tur = tur;
             _fordon = fordon;
+
         }
 
         private void PågåendeTurerKort_Load(object sender, EventArgs e)
         {
-            lblVärdeBatteri.Text = _fordon.BatteriNivå.ToString();
-            lblVärdeFStatus.Text = _fordon.FordonStatus.ToString();
-            lblVärdeBStatus.Text = _fordon.BokningStatus.ToString();
-            lblVärdeFTyp.Text = _fordon.FordonTyp.ToString();
-            lblFordonID.Text = _fordon.FordonID;
+            lblVärdeDatum.Text = _tur.Datum.ToString();
+            lblVärdeStartTid.Text = _tur.StartTid.ToString();
+            lblVärdeBetalningMetod.Text = _tur.BetalningsMetod.ToString();
+            lblVärdeFId.Text = _tur.FordonID;
+
+
+        }
+
+        private void btnAvsluta_Click(object sender, EventArgs e)
+        {
+            PågåendeTurer tur = session.Instance.InloggadAnvändare.konto.tur;
+            infoForm _InfoForm = new();
+            BekräftaTurForm form = new(_fordon, _InfoForm);
+            form.AvslutaTur();
+
+            
+
+
         }
     }
 }

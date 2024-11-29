@@ -39,6 +39,7 @@
             lblVärdeFStatus = new Label();
             lblVärdeBStatus = new Label();
             lblVärdeFTyp = new Label();
+            btn_Tabort = new Button();
             SuspendLayout();
             // 
             // lblFordonID
@@ -107,6 +108,7 @@
             btnVälj.TabIndex = 6;
             btnVälj.Text = "Välj";
             btnVälj.UseVisualStyleBackColor = false;
+            btnVälj.Click += btnVälj_Click;
             // 
             // lblVärdeBatteri
             // 
@@ -144,11 +146,25 @@
             lblVärdeFTyp.TabIndex = 10;
             lblVärdeFTyp.Text = "värde";
             // 
+            // btn_Tabort
+            // 
+            btn_Tabort.BackColor = Color.FromArgb(255, 128, 128);
+            btn_Tabort.FlatStyle = FlatStyle.Flat;
+            btn_Tabort.Location = new Point(279, 81);
+            btn_Tabort.Name = "btn_Tabort";
+            btn_Tabort.Size = new Size(100, 43);
+            btn_Tabort.TabIndex = 11;
+            btn_Tabort.Text = "Ta bort";
+            btn_Tabort.UseVisualStyleBackColor = false;
+            btn_Tabort.Visible = false;
+            btn_Tabort.Click += btn_Tabort_Click;
+            // 
             // FordonKort
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGray;
+            Controls.Add(btn_Tabort);
             Controls.Add(lblVärdeFTyp);
             Controls.Add(lblVärdeBStatus);
             Controls.Add(lblVärdeFStatus);
@@ -180,5 +196,6 @@
         private Label lblVärdeFStatus;
         private Label lblVärdeBStatus;
         private Label lblVärdeFTyp;
+        private Button btn_Tabort;
     }
 }

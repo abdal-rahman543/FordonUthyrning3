@@ -53,9 +53,9 @@
             lblAntalFordon.AutoSize = true;
             lblAntalFordon.Location = new Point(24, 50);
             lblAntalFordon.Name = "lblAntalFordon";
-            lblAntalFordon.Size = new Size(76, 15);
+            lblAntalFordon.Size = new Size(110, 15);
             lblAntalFordon.TabIndex = 1;
-            lblAntalFordon.Text = "AntalFordon:";
+            lblAntalFordon.Text = "Tillgängliga fordon:";
             // 
             // lblKapacitet
             // 
@@ -90,7 +90,7 @@
             // lblVärdeAntal
             // 
             lblVärdeAntal.AutoSize = true;
-            lblVärdeAntal.Location = new Point(99, 51);
+            lblVärdeAntal.Location = new Point(140, 50);
             lblVärdeAntal.Name = "lblVärdeAntal";
             lblVärdeAntal.Size = new Size(36, 15);
             lblVärdeAntal.TabIndex = 5;
@@ -114,7 +114,7 @@
             lblVärdeKapacitet.TabIndex = 7;
             lblVärdeKapacitet.Text = "värde";
             // 
-            // UI_StationsKort
+            // StationsKort
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -127,7 +127,7 @@
             Controls.Add(lblKapacitet);
             Controls.Add(lblAntalFordon);
             Controls.Add(lblStationNamn);
-            Name = "UI_StationsKort";
+            Name = "StationsKort";
             Size = new Size(422, 125);
             Load += UI_StationsKort_Load;
             ResumeLayout(false);

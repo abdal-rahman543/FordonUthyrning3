@@ -11,6 +11,7 @@ using Uthyrning.Affärslager;
 using UthyrningSystem.Entiteter;
 using FordonUthyrning3.UserControllers;
 using FordonUthyrning3.GUI_components;
+using FordonUthyrning3.Controllers;
 namespace FordonUthyrning3
 {
     public partial class StationController : UserControl
@@ -29,9 +30,10 @@ namespace FordonUthyrning3
             List<Station> StationList = _service.HämtaStationer();
             foreach (Station station in StationList)
             {
-                StationsKort StationKort = new StationsKort(station, _form1);
+                StationsKort StationKort = new StationsKort(station);
                 pnlStationContainer.Controls.Add(StationKort);
                 StationKort.Width = pnlStationContainer.Width - 30;
+                station.UppdateraAntalFordon();
 
 
 
@@ -50,9 +52,13 @@ namespace FordonUthyrning3
 
             foreach (Fordon fordon in station.Fordonlista)
             {
-                FordonKort nyttKort = new FordonKort(fordon, _form1);
-                pnlSection.Controls.Add(nyttKort);
+                if (fordon.BokningStatus == Enums.BokningStatus.Tillgänglig)
+                {
+                    FordonKort nyttKort = new FordonKort(fordon,station, _form1);
+                    pnlSection.Controls.Add(nyttKort);
+                }
             }
         }
-    }     
+
+    }
 }

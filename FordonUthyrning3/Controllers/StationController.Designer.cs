@@ -49,7 +49,6 @@ namespace FordonUthyrning3
             pnlStationContainer.Size = new Size(450, 550);
             pnlStationContainer.TabIndex = 0;
             pnlStationContainer.WrapContents = false;
-            
             // 
             // lblNamn
             // 
@@ -80,7 +79,6 @@ namespace FordonUthyrning3
             Controls.Add(pnlStationContainer);
             Name = "StationController";
             Size = new Size(450, 550);
-           
             pnlStationContainer.ResumeLayout(false);
             pnlStationContainer.PerformLayout();
             ResumeLayout(false);

@@ -4,14 +4,15 @@ using Uthyrning.Databas;
 using Uthyrning.Affärslager;
 using Microsoft.VisualBasic.Devices;
 using UthyrningSystem.Entiteter;
+using FordonUthyrning3.UserControllers;
+using Uthyrning.Entiteter;
 namespace FordonUthyrning3
 {
     public partial class Form1 : Form
     {
-        private LoginController controller;
+
         public static Form1 _instance;
-        public static Användare UserInContext;
-      
+
 
 
         public Form1()
@@ -19,29 +20,29 @@ namespace FordonUthyrning3
             InitializeComponent();
 
             _instance = this;
-           
+
 
             // Ensure GbxContent_Container is initialized before adding controller
             if (GbxContent_Container != null)
             {
-                controller = new LoginController();
-                this.GbxContent_Container.Controls.Add(controller);
+                Vyer.LaddaLogginVy();
+
             }
             else
             {
                 MessageBox.Show("GbxContent_Container is not initialized.");
             }
         }
-       
+
 
         // Metod för att initiera Form1-instansen
-      
+
         private void Form1_Resize(object sender, EventArgs e)
         {
-            if (GbxContent_Container != null && controller != null)
+            if (GbxContent_Container != null)
             {
-                GbxContent_Container.Width = this.ClientSize.Width - 300;
-                GbxContent_Container.Height = this.ClientSize.Height - 200;
+
+                GbxContent_Container.Height = this.ClientSize.Height - 350;
 
                 // Center GroupBox in the form’s client area
                 GbxContent_Container.Location = new Point(
@@ -49,17 +50,48 @@ namespace FordonUthyrning3
                     (this.ClientSize.Height / 2) - (GbxContent_Container.Height / 2)
                 );
 
+                // Centrerar LoginBoxen
+
+
             }
-            // Centrerar LoginBoxen
-            controller.Location = new Point(GbxContent_Container.Width / 2 - controller.Width / 2, GbxContent_Container.Height / 2 - controller.Height / 2);
+
         }
 
         private void hemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GbxContent_Container.Controls.Clear();
-            Vyer hemvy = new(this);
-            hemvy.LaddaHemVy();
-            
+
+            Vyer.LaddaHemVy();
+
+        }
+
+        private void profilToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Vyer.LaddaProfil();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _instance.Meny.Visible = false;
+            session.Instance.EndSession();
+            Vyer.LaddaLogginVy();
+        }
+
+        private void toolStripMenuBack_Click(object sender, EventArgs e)
+        {
+            _instance.Meny.Visible = true;
+            Vyer.LaddaLogginVy();
+        }
+
+
+        private void btnAddStation_Click(object sender, EventArgs e)
+        {
+            Vyer.LaddaStationRegistrering();
+        }
+
+        private void btnAddFordon_Click(object sender, EventArgs e)
+        {
+            Vyer.LaddaFordonRegistrering();
         }
     }
 }

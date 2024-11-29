@@ -1,4 +1,6 @@
-﻿namespace FordonUthyrning3
+﻿using FordonUthyrning3.Controllers;
+
+namespace FordonUthyrning3
 {
     partial class Form1
     {
@@ -26,25 +28,31 @@
         ///  Required method for Designer support - do not modify
         ///  the contents of this method with the code editor.
         /// </summary>
+
+
         private void InitializeComponent()
         {
             Meny = new MenuStrip();
+            toolStripMenuBack = new ToolStripMenuItem();
             hemToolStripMenuItem = new ToolStripMenuItem();
             profilToolStripMenuItem = new ToolStripMenuItem();
             exitToolStripMenuItem = new ToolStripMenuItem();
             BackgrundsBild_Container = new PictureBox();
             GbxContent_Container = new GroupBox();
             splitContainer = new SplitContainer();
+            btnAddStation = new Button();
+            btnAddFordon = new Button();
             Meny.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BackgrundsBild_Container).BeginInit();
             GbxContent_Container.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer).BeginInit();
+            splitContainer.Panel2.SuspendLayout();
             splitContainer.SuspendLayout();
             SuspendLayout();
             // 
             // Meny
             // 
-            Meny.Items.AddRange(new ToolStripItem[] { hemToolStripMenuItem, profilToolStripMenuItem, exitToolStripMenuItem });
+            Meny.Items.AddRange(new ToolStripItem[] { toolStripMenuBack, hemToolStripMenuItem, profilToolStripMenuItem, exitToolStripMenuItem });
             Meny.Location = new Point(0, 0);
             Meny.Name = "Meny";
             Meny.Size = new Size(1205, 24);
@@ -52,11 +60,20 @@
             Meny.Text = "menuStrip1";
             Meny.Visible = false;
             // 
+            // toolStripMenuBack
+            // 
+            toolStripMenuBack.Name = "toolStripMenuBack";
+            toolStripMenuBack.Size = new Size(44, 20);
+            toolStripMenuBack.Text = "Back";
+            toolStripMenuBack.Visible = false;
+            toolStripMenuBack.Click += toolStripMenuBack_Click;
+            // 
             // hemToolStripMenuItem
             // 
             hemToolStripMenuItem.Name = "hemToolStripMenuItem";
             hemToolStripMenuItem.Size = new Size(45, 20);
             hemToolStripMenuItem.Text = "Hem";
+            hemToolStripMenuItem.Visible = false;
             hemToolStripMenuItem.Click += hemToolStripMenuItem_Click;
             // 
             // profilToolStripMenuItem
@@ -64,12 +81,16 @@
             profilToolStripMenuItem.Name = "profilToolStripMenuItem";
             profilToolStripMenuItem.Size = new Size(47, 20);
             profilToolStripMenuItem.Text = "Profil";
+            profilToolStripMenuItem.Visible = false;
+            profilToolStripMenuItem.Click += profilToolStripMenuItem_Click;
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             exitToolStripMenuItem.Size = new Size(38, 20);
             exitToolStripMenuItem.Text = "Exit";
+            exitToolStripMenuItem.Visible = false;
+            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
             // BackgrundsBild_Container
             // 
@@ -99,10 +120,42 @@
             splitContainer.Dock = DockStyle.Fill;
             splitContainer.Location = new Point(15, 31);
             splitContainer.Name = "splitContainer";
+            // 
+            // splitContainer.Panel2
+            // 
+            splitContainer.Panel2.Controls.Add(btnAddStation);
+            splitContainer.Panel2.Controls.Add(btnAddFordon);
             splitContainer.Size = new Size(984, 540);
             splitContainer.SplitterDistance = 489;
             splitContainer.TabIndex = 0;
             splitContainer.Visible = false;
+            // 
+            // btnAddStation
+            // 
+            btnAddStation.Anchor = AnchorStyles.Right;
+            btnAddStation.BackColor = Color.FromArgb(255, 255, 128);
+            btnAddStation.FlatStyle = FlatStyle.Flat;
+            btnAddStation.Location = new Point(193, 223);
+            btnAddStation.Name = "btnAddStation";
+            btnAddStation.Size = new Size(148, 64);
+            btnAddStation.TabIndex = 4;
+            btnAddStation.Text = "Lägg till station";
+            btnAddStation.UseVisualStyleBackColor = false;
+            btnAddStation.Visible = false;
+            btnAddStation.Click += btnAddStation_Click;
+            // 
+            // btnAddFordon
+            // 
+            btnAddFordon.BackColor = Color.FromArgb(255, 255, 128);
+            btnAddFordon.FlatStyle = FlatStyle.Flat;
+            btnAddFordon.Location = new Point(193, 343);
+            btnAddFordon.Name = "btnAddFordon";
+            btnAddFordon.Size = new Size(148, 64);
+            btnAddFordon.TabIndex = 5;
+            btnAddFordon.Text = "Lägg till Fordon";
+            btnAddFordon.UseVisualStyleBackColor = false;
+            btnAddFordon.Visible = false;
+            btnAddFordon.Click += btnAddFordon_Click;
             // 
             // Form1
             // 
@@ -120,20 +173,25 @@
             Meny.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)BackgrundsBild_Container).EndInit();
             GbxContent_Container.ResumeLayout(false);
+            splitContainer.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer).EndInit();
             splitContainer.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
 
+
         #endregion
-        private ToolStripMenuItem hemToolStripMenuItem;
-        private ToolStripMenuItem profilToolStripMenuItem;
-        private ToolStripMenuItem exitToolStripMenuItem;
+        public ToolStripMenuItem hemToolStripMenuItem;
+        public ToolStripMenuItem profilToolStripMenuItem;
+        public ToolStripMenuItem exitToolStripMenuItem;
         private PictureBox BackgrundsBild_Container;
         public GroupBox GbxContent_Container;
         public SplitContainer splitContainer;
-        private Splitter splitter1;
+        
         public MenuStrip Meny;
+        public ToolStripMenuItem toolStripMenuBack;
+        public Button btnAddStation;
+        public Button btnAddFordon;
     }
 }
