@@ -89,6 +89,7 @@ namespace FordonUthyrning3.GUI_components
         {
             if (cbxMetod.SelectedItem == "Swish")
             {
+                tbxVärde.ReadOnly = false;
                 tbxVärde.PlaceholderText = "Skriv in ditt telefonnummer";
                 
             }
@@ -99,6 +100,7 @@ namespace FordonUthyrning3.GUI_components
             }
             else if (cbxMetod.SelectedItem == "kort")
             {
+                tbxVärde.ReadOnly = false;
                 tbxVärde.PlaceholderText = "Skriv in ditt kort-nummer 16 siffror";
             }
         }

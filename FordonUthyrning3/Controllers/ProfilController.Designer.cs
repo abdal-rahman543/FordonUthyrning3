@@ -126,6 +126,7 @@
             tbxSwishnr.PlaceholderText = "Swish-Telenr";
             tbxSwishnr.Size = new Size(189, 23);
             tbxSwishnr.TabIndex = 8;
+            tbxSwishnr.TextChanged += tbxSwishnr_TextChanged;
             // 
             // tbxKortNr
             // 
