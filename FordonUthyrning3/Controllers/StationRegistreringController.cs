@@ -29,14 +29,13 @@ namespace FordonUthyrning3.Controllers
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRegistrera_Click(object sender, EventArgs e)
         {
 
             string stationID = GenerateStationID();
             string stationNamn = tbxStationNamn.Text; //Bör vi ha kontroll av namn osv?
             string stationAdress = tbxStationAdress.Text;
             string stationOrt = tbxStationOrt.Text;
-            int antalFordon = 0;
             int kapacitet;
             new List<Fordon>();
             currentStationNummer++;
@@ -47,7 +46,7 @@ namespace FordonUthyrning3.Controllers
                 return;
             }
 
-            Station station = new Station(stationID, stationNamn, stationAdress, stationOrt, kapacitet);
+            Station station = _stationService.SkapaStation(stationID, stationNamn, stationAdress, stationOrt, kapacitet);
 
             if (station != null)
             {
@@ -77,5 +76,6 @@ namespace FordonUthyrning3.Controllers
         {
 
         }
+
     }
 }

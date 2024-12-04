@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Uthyrning.Databas;
 using UthyrningSystem.Entiteter;
+using static System.Collections.Specialized.BitVector32;
 namespace Uthyrning.Affärslager
 {
     public class StationService
@@ -25,7 +26,11 @@ namespace Uthyrning.Affärslager
         {
             _repository.LäggTillStation(station);
         }
+        public Station SkapaStation(string stationID, string stationNamn, string adress, string ort, int kapacitet) 
+        {
+            return new Station(stationID, stationNamn, adress, ort, kapacitet);
 
+        }
 
     }
 }

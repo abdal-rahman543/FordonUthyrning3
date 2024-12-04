@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using Uthyrning.Affärslager;
 using Uthyrning.Databas;
 using UthyrningSystem.Entiteter;
 using static UthyrningSystem.Entiteter.Enums;
@@ -12,21 +13,26 @@ namespace FordonUthyrning3.Controllers
     public partial class FordonRegistreringController : UserControl
     {
         private static Form1 _form1 = Form1._instance;
-        private InMemoryDatabase _database = InMemoryDatabase.Instans;
+        private readonly FordonService _Fordonservice;
+        private readonly StationService _Stationservice;
         private ComboBox cbxStationer;
 
         public FordonRegistreringController()
         {
             InitializeComponent();
+
+            _Fordonservice = Custom_ServiceContainer.GetService<FordonService>();
+            _Stationservice = Custom_ServiceContainer.GetService<StationService>();
             // Initialize ComboBox for assigning stations to vehicles
+
             tbxRTilldelaStation.DropDownStyle = ComboBoxStyle.DropDownList;
-            tbxRTilldelaStation.DataSource = _database.HämtaStationer();
+            tbxRTilldelaStation.DataSource = _Stationservice.HämtaStationer();
             tbxRTilldelaStation.DisplayMember = "StationNamn";
-            tbxRTilldelaStation.ValueMember = "StationID";
+
 
             cbxStationer = new ComboBox();
             cbxStationer.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbxStationer.DataSource = _database.HämtaStationer();
+            cbxStationer.DataSource = _Stationservice.HämtaStationer();
             cbxStationer.DisplayMember = "StationNamn";
             cbxStationer.ValueMember = "StationID";
             Controls.Add(cbxStationer);
@@ -52,10 +58,6 @@ namespace FordonUthyrning3.Controllers
             // Hantera klickhändelsen för lblRBatteriNivå (eller annan logik om det behövs)
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            // Hantera textändring för tbxRFordonStatus (eller annan logik om det behövs)
-        }
 
         private void btnRegistreraFordon_Click(object sender, EventArgs e)
         {
@@ -64,17 +66,10 @@ namespace FordonUthyrning3.Controllers
             FordonStatus valdStatus = (FordonStatus)Enum.Parse(typeof(FordonStatus), tbxRFordonStatus.SelectedItem.ToString());
             BokningStatus valdBokningStatus = (BokningStatus)Enum.Parse(typeof(BokningStatus), tbxRBokningStatus.SelectedItem.ToString());
             int valdBatteriNivå = int.Parse(tbxRBatteriNivå.SelectedItem.ToString());
+            int pris = int.Parse(tbxPris.Text);
 
             // Skapa ett nytt fordon baserat på användarens val
-            Fordon nyttFordon;
-            if (valdTyp == FordonsTyp.El_Scooter)
-            {
-                nyttFordon = new ElScooter(valdTyp, valdStatus, 200, valdBatteriNivå);
-            }
-            else
-            {
-                nyttFordon = new ElCykel(valdTyp, valdStatus, 130, valdBatteriNivå);
-            }
+            Fordon nyttFordon = _Fordonservice.SkapaFordon(valdTyp, valdStatus, pris, valdBatteriNivå);
 
             // Registrera fordonet till vald station
             RegistreraNyttFordonMedStation(nyttFordon);
@@ -87,7 +82,6 @@ namespace FordonUthyrning3.Controllers
             if (station != null)
             {
                 // Add the vehicle to the station's vehicle list
-                if (station.Fordonlista == null) station.Fordonlista = new List<Fordon>();
                 if (station.Fordonlista.Count == station.Kapacitet)
                 {
                     MessageBox.Show($"Stationen {station.StationNamn} har nått sin maximala kapacitet och kan inte ta emot fler fordon.");
@@ -95,15 +89,15 @@ namespace FordonUthyrning3.Controllers
                 }
                 else
                 {
-                    station.Fordonlista.Add(fordon);
+
+                    _Fordonservice.RegistreraFordon(fordon,station);
                     Vyer.LaddaHemVy();
+                    MessageBox.Show($"Fordonet med ID {fordon.FordonID} har registrerats vid stationen {station.StationNamn}.");
                 }
                
 
                 // Update the station list in the database to reflect the changes
-                station.UppdateraAntalFordon();
-
-                MessageBox.Show($"Fordonet med ID {fordon.FordonID} har registrerats vid stationen {station.StationNamn}.");
+              
             }
             else
             {

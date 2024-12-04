@@ -69,7 +69,7 @@
             btnBörjaTur.TabIndex = 1;
             btnBörjaTur.Text = "Börja tur";
             btnBörjaTur.UseVisualStyleBackColor = false;
-            btnBörjaTur.Click += lblBörjaTur_Click;
+            btnBörjaTur.Click += btnBörjaTur_Click;
             // 
             // lblDatum
             // 
@@ -211,7 +211,7 @@
             btnAvsluta.BackColor = Color.FromArgb(255, 255, 128);
             btnAvsluta.FlatStyle = FlatStyle.Flat;
             btnAvsluta.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
-            btnAvsluta.Location = new Point(219, 345);
+            btnAvsluta.Location = new Point(346, 345);
             btnAvsluta.Name = "btnAvsluta";
             btnAvsluta.Size = new Size(121, 46);
             btnAvsluta.TabIndex = 17;

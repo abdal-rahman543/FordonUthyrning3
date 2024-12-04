@@ -34,10 +34,10 @@ namespace FordonUthyrning3.GUI_components
             Datum = new DateOnly(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
             StartTid = new TimeOnly(DateTime.Now.Hour, DateTime.Now.Minute);
             FordonID = _fordon.FordonID;
-           
+
         }
 
-        public void PågåendeTurerFormLoad()
+        public void TurerFormLoad()
         {
             Konto _konto = session.Instance.InloggadAnvändare.konto;
             // Sätt texten för UI-elementen när kontrollen laddas
@@ -45,7 +45,7 @@ namespace FordonUthyrning3.GUI_components
             lblVärdeStartTid.Text = StartTid.ToString();
             lblVärdeFID.Text = _fordon.FordonID;
 
-            if (_konto.BetalningsMetod.Contains(Enums.BetalningsMetod.Swish)) 
+            if (_konto.BetalningsMetod.Contains(Enums.BetalningsMetod.Swish))
             {
                 cbxBetalningsMetod.Items.Add("Swish");
             }
@@ -59,17 +59,17 @@ namespace FordonUthyrning3.GUI_components
             }
         }
 
-        private void lblBörjaTur_Click(object sender, EventArgs e)
+        private void btnBörjaTur_Click(object sender, EventArgs e)
         {
             if (Enum.TryParse(cbxBetalningsMetod.SelectedItem?.ToString(), out Enums.BetalningsMetod selectedMetod))
             {
                 BetalningsMetod = selectedMetod;
             }
-           
+
 
             PågåendeTurer tur = new(Datum, StartTid, BetalningsMetod, FordonID, _fordon);
-           
-           _turController.RegistreraTur(tur);
+
+            _turController.RegistreraTur(tur);
             MessageBox.Show("Bokning bekräftad!");
             _infoForm.Close();
             Vyer.LaddaHemVy();
@@ -81,12 +81,12 @@ namespace FordonUthyrning3.GUI_components
             PågåendeTurer tur = hyresTagare.konto.tur;
             Konto _konto = hyresTagare.konto;
             lblTitel.Text = "Avsluta tur";
-          
 
-            
-             slutTid = new TimeOnly(DateTime.Now.Hour, DateTime.Now.Minute);
-             TurTid = slutTid - tur.StartTid;
-             Kostnad = _fordon.kostnad * (float)TurTid.TotalSeconds / 60;
+
+
+            slutTid = new TimeOnly(DateTime.Now.Hour, DateTime.Now.Minute);
+            TurTid = slutTid - tur.StartTid;
+            Kostnad = _fordon.kostnad * (float)TurTid.TotalSeconds / 60;
 
             // Tar in värde från fälten
             lblVärdeDatum.Text = tur.Datum.ToString();
@@ -121,9 +121,11 @@ namespace FordonUthyrning3.GUI_components
             _infoForm.Close();
             hyresTagare.konto.tur = null;
             _turController.LaddaKort();
-            Vyer.LaddaHemVy();   
-            _turController.RegistreraHistorik(Datum, tur.StartTid,slutTid,Kostnad,tur.BetalningsMetod,_fordon.FordonID,hyresTagare);
+            Vyer.LaddaHemVy();
+            _turController.RegistreraHistorik(tur.Datum, tur.StartTid, slutTid, Kostnad, tur.BetalningsMetod, tur.FordonID, hyresTagare);
 
         }
+
+       
     }
 }

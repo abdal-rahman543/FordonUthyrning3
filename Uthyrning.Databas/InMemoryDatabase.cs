@@ -9,7 +9,7 @@ namespace Uthyrning.Databas
         private static object lockToken = new object();
 
         private static List<Användare> AllaAnvändare = new List<Användare>();
-        private static List<Fordon> fordon = new List<Fordon>();
+        
         private static List<Station> stationer = new List<Station>();
 
         public InMemoryDatabase()

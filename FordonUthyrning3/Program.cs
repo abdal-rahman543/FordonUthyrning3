@@ -21,6 +21,8 @@ namespace FordonUthyrning3
             Custom_ServiceContainer.RegistreraService(new LoginService());
             Custom_ServiceContainer.RegistreraService(new RegistreraService());
             Custom_ServiceContainer.RegistreraService(new TurService());
+            Custom_ServiceContainer.RegistreraService(new FordonService());
+
 
 
 

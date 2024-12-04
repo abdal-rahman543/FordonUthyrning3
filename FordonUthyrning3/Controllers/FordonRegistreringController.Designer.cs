@@ -40,6 +40,8 @@
             tbxRFordonTyp = new ComboBox();
             lblRTilldelaStation = new Label();
             tbxRTilldelaStation = new ComboBox();
+            label1 = new Label();
+            tbxPris = new TextBox();
             SuspendLayout();
             // 
             // lblFordonRegistrering
@@ -137,7 +139,7 @@
             // lblRTilldelaStation
             // 
             lblRTilldelaStation.AutoSize = true;
-            lblRTilldelaStation.Location = new Point(22, 195);
+            lblRTilldelaStation.Location = new Point(22, 227);
             lblRTilldelaStation.Name = "lblRTilldelaStation";
             lblRTilldelaStation.Size = new Size(103, 15);
             lblRTilldelaStation.TabIndex = 14;
@@ -146,15 +148,33 @@
             // tbxRTilldelaStation
             // 
             tbxRTilldelaStation.FormattingEnabled = true;
-            tbxRTilldelaStation.Location = new Point(138, 192);
+            tbxRTilldelaStation.Location = new Point(138, 224);
             tbxRTilldelaStation.Name = "tbxRTilldelaStation";
             tbxRTilldelaStation.Size = new Size(121, 23);
             tbxRTilldelaStation.TabIndex = 15;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(23, 195);
+            label1.Name = "label1";
+            label1.Size = new Size(52, 15);
+            label1.TabIndex = 16;
+            label1.Text = "Pris/min";
+            // 
+            // tbxPris
+            // 
+            tbxPris.Location = new Point(138, 195);
+            tbxPris.Name = "tbxPris";
+            tbxPris.Size = new Size(121, 23);
+            tbxPris.TabIndex = 17;
             // 
             // FordonRegistreringController
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(tbxPris);
+            Controls.Add(label1);
             Controls.Add(tbxRTilldelaStation);
             Controls.Add(lblRTilldelaStation);
             Controls.Add(tbxRFordonTyp);
@@ -187,5 +207,7 @@
         private ComboBox tbxRFordonTyp;
         private Label lblRTilldelaStation;
         private ComboBox tbxRTilldelaStation;
+        private Label label1;
+        private TextBox tbxPris;
     }
 }

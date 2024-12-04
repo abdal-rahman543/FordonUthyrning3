@@ -48,12 +48,13 @@ namespace FordonUthyrning3.GUI_components
 
         private void btnVälj_Click(object sender, EventArgs e)
         {
-            PågåendeTurer tur = session.Instance.InloggadAnvändare.konto.tur;
+            //Ser till att det inte finns några pågående turer
+            PågåendeTurer tur = _user.konto.tur;
             if (tur == null)
             {
                 infoForm _infoForm = new();
                 BekräftaTurForm form = new(_fordon, _infoForm);
-                form.PågåendeTurerFormLoad();
+                form.TurerFormLoad();
                 _infoForm.Controls.Add(form);
                 _infoForm.ShowDialog();
 

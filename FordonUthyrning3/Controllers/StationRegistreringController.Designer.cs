@@ -59,7 +59,7 @@
             btnRegistreraStation.TabIndex = 1;
             btnRegistreraStation.Text = "Registrera Station";
             btnRegistreraStation.UseVisualStyleBackColor = false;
-            btnRegistreraStation.Click += button1_Click;
+            btnRegistreraStation.Click += btnRegistrera_Click;
             // 
             // tbxStationAdress
             // 
