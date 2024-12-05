@@ -50,13 +50,19 @@ namespace FordonUthyrning3
             pnlSection.Visible = true;
             pnlSection.WrapContents = true;
 
-            foreach (Fordon fordon in station.Fordonlista)
-            {
-                if (fordon.BokningStatus == Enums.BokningStatus.Tillgänglig)
+            if (station.Fordonlista.Count > 0) {
+                foreach (Fordon fordon in station.Fordonlista)
                 {
-                    FordonKort nyttKort = new FordonKort(fordon,station, _form1);
-                    pnlSection.Controls.Add(nyttKort);
+                    if (fordon.BokningStatus == Enums.BokningStatus.Tillgänglig)
+                    {
+                        FordonKort nyttKort = new FordonKort(fordon, station, _form1);
+                        pnlSection.Controls.Add(nyttKort);
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Finns inga tillgängliga fordon för tillfället");
             }
         }
 
